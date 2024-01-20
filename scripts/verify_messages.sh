@@ -1,5 +1,6 @@
 #!/bin/bash
 
+gpg --list-keys
 directory="$(pwd)/messages"
 for subfolder in "$directory"/*; do
     if [ -d "$subfolder" ]; then
