@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Import Cicada 3301 Key
-        run: ./scripts/sync_cicada_3301_key.sh
+        run: ./scripts/import_cicada_3301_key.sh
       - name: Verify Messages
         run: ./scripts/verify_messages.sh
