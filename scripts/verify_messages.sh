@@ -1,7 +1,4 @@
 #!/bin/bash
-gpg --import "$(pwd)/messages/67F363C61BA8FB6FDBA9C47D0670B0E57A35090F.asc"
-
-gpg --list-keys
 
 directory="$(pwd)/messages"
 for subfolder in "$directory"/*; do
