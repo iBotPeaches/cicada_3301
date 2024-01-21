@@ -9,5 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ vars.CICADA_PUBLIC_KEY }}
+          trust_level: 5
+
       - name: Import & Verify Messages
         run: ./scripts/import_cicada_3301_key.sh && ./scripts/verify_messages.sh
