@@ -1,15 +1,18 @@
 #!/bin/bash
 
+set -e
+
+key="$(pwd)/messages/67F363C61BA8FB6FDBA9C47D0670B0E57A35090F.asc.gpg"
 directory="$(pwd)/messages"
 for subfolder in "$directory"/*; do
     if [ -d "$subfolder" ]; then
         cd "$subfolder" || exit
 
         for file in *; do
-            if [ -f "$file" ]; then
+            if [ -f "$file" ] && [ -f "$key" ]; then
                 echo "Verifying GPG integrity of: $(basename "$subfolder"/"$file")"
 
-                if gpg2 --verify "$file" > /dev/null 2>&1; then
+                if gpgv --keyring "$key" "$file"; then
                     echo "Verification successful!"
                 else
                     echo "Verification failed. GPG signature may be invalid."
