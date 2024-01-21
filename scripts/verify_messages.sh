@@ -2,9 +2,9 @@
 
 set -e
 
-key="$(pwd)/messages/67F363C61BA8FB6FDBA9C47D0670B0E57A35090F.asc.gpg"
+key="$(pwd)/keys/67F363C61BA8FB6FDBA9C47D0670B0E57A35090F.asc.gpg"
 directory="$(pwd)/messages"
-for subfolder in "$directory"/*; do
+find "$directory" -type d -print0 | while IFS= read -r -d '' subfolder; do
     if [ -d "$subfolder" ]; then
         cd "$subfolder" || exit
 
