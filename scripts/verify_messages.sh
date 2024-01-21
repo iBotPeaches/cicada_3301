@@ -9,7 +9,7 @@ for subfolder in "$directory"/*; do
             if [ -f "$file" ]; then
                 echo "Verifying GPG integrity of: $(basename "$subfolder"/"$file")"
 
-                if gpg --verify "$file" > /dev/null 2>&1; then
+                if gpg2 --verify "$file" > /dev/null 2>&1; then
                     echo "Verification successful!"
                 else
                     echo "Verification failed. GPG signature may be invalid."
