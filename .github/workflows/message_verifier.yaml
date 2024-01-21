@@ -13,7 +13,7 @@ jobs:
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v6
         with:
-          gpg_private_key: ${{ vars.CICADA_PUBLIC_KEY }}
+          gpg_private_key: ${{ vars.CICADA_TEST_PRIVATE_KEY }}
           trust_level: 5
 
       - name: Import & Verify Messages
