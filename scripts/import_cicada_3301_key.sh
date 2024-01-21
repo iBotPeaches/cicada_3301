@@ -2,7 +2,7 @@
 
 set -x
 
-if gpg2 --recv-keys 67F363C61BA8FB6FDBA9C47D0670B0E57A35090F; then
+if gpg2 --keyserver hkps://keyserver.ubuntu.com --recv-keys 67F363C61BA8FB6FDBA9C47D0670B0E57A35090F; then
 
     if [ "$CI" = "true" ]; then
         gpg -k
