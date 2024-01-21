@@ -5,6 +5,12 @@ _Random collection of Cicada 3301 assets - not intending to compete with more co
 
  * Messages must verify to Cicada.
 
+### Posts
+
+ * [Puzzle 1](https://connortumbleson.com/2019/09/30/the-cicada-3301-mystery/)
+ * [Puzzle 1 - 2nd Chance](https://connortumbleson.com/2021/04/12/the-cicada-3301-mystery-puzzle-1-extra/)
+ * [Puzzle 2](https://connortumbleson.com/2021/01/25/the-cicada-3301-mystery-puzzle-2/)
+ * [Puzzle 3 - Part 1](https://connortumbleson.com/2021/02/15/the-cicada-3301-mystery-puzzle-3-part1/)
 
 #### Others
 
