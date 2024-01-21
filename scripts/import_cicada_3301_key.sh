@@ -2,9 +2,7 @@
 
 set -x
 
-key="$(pwd)/messages/67F363C61BA8FB6FDBA9C47D0670B0E57A35090F.asc"
-
-if gpg2 --allow-non-selfsigned-uid --import-options show-only --import "$key"; then
+if gpg2 --recv-keys 67F363C61BA8FB6FDBA9C47D0670B0E57A35090F; then
 
     if [ "$CI" = "true" ]; then
         gpg -k
