@@ -21,7 +21,7 @@ enum Rune: string
     case EO = 'ᛇ';
     case P = 'ᛈ';
     case X = 'ᛉ';
-    case S_OR_Z = 'ᛊ';
+    case S_OR_Z = 'ᛋ';
     case T = 'ᛏ';
     case B = 'ᛒ';
     case E = 'ᛖ';

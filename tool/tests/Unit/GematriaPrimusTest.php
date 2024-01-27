@@ -129,7 +129,7 @@ class GematriaPrimusTest extends TestCase
             ],
             's_or_z' => [
                 'rune' => Rune::S_OR_Z,
-                'raw' => "\u{16CA}",
+                'raw' => "\u{16CB}",
                 'letter' => ['S', 'Z'],
                 'singleLetter' => '[S|Z]',
                 'value' => 53,
