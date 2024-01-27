@@ -1,0 +1,39 @@
+{
+    "name": "ibotpeaches/cicada_3301",
+    "description": "A personal Cicada 3301 Liber Primus decoding.",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "laravel-zero/framework": "^10.2",
+        "nunomaduro/termwind": "^1.15.1"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "mockery/mockery": "^1.6",
+        "pestphp/pest": "^2.22"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "bin": ["cicada"]
+}
