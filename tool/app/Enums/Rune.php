@@ -6,35 +6,35 @@ namespace App\Enums;
 
 enum Rune: string
 {
-    case F = 'ᚠ'; // fehu - Code Point: U+16A0
-    case U = 'ᚢ'; // uruz - Code Point: U+16A2
-    case TH = 'ᚦ'; // thurisaz - Code Point: U+16A6
-    case O = 'ᚩ'; // os - Code Point: U+16A9
-    case R = 'ᚱ'; // raido - Code Point: U+16B1
-    case C_OR_K = 'ᚳ'; // kaun - Code Point: U+16B3
-    case G = 'ᚷ'; // gyfu - Code Point: U+16B7
-    case W = 'ᚹ'; // wunjo - Code Point: U+16B9
-    case H = 'ᚻ'; // hagalaz - Code Point: U+16BA
-    case N = 'ᚾ'; // naudiz - Code Point: U+16BE
-    case I = 'ᛁ'; // isaz - Code Point: U+16C1
-    case J = 'ᛄ'; // jera - Code Point: U+16C3
-    case EO = 'ᛇ'; // eihwaz - Code Point: U+16C7
-    case P = 'ᛈ'; // pertho - Code Point: U+16C8
-    case X = 'ᛉ'; // algiz - Code Point: U+16C9
-    case S_OR_Z = 'ᛊ'; // sowilo - Code Point: U+16CA
-    case T = 'ᛏ'; // tiwaz - Code Point: U+16CF
-    case B = 'ᛒ'; // berkano - Code Point: U+16D2
-    case E = 'ᛖ'; // ehwaz - Code Point: U+16D6
-    case M = 'ᛗ'; // mannaz - Code Point: U+16D7
-    case L = 'ᛚ'; // laguz - Code Point: U+16DA
-    case NG_OR_ING = 'ᛝ'; // ingwaz - Code Point: U+16DC
-    case OE = 'ᛟ'; // othala - Code Point: U+16DF
-    case D = 'ᛞ'; // dagaz - Code Point: U+16DE
-    case A = 'ᚪ'; // ansuz - Code Point: U+16AA
-    case AE = 'ᚫ'; // aesc - Code Point: U+16AB
-    case Y = 'ᚣ'; // yr - Code Point: U+16A3
-    case IA_OR_IO = 'ᛡ'; // io - Code Point: U+16E1
-    case EA = 'ᛠ'; // ear - Code Point: U+16E0
+    case F = 'ᚠ';
+    case U = 'ᚢ';
+    case TH = 'ᚦ';
+    case O = 'ᚩ';
+    case R = 'ᚱ';
+    case C_OR_K = 'ᚳ';
+    case G = 'ᚷ';
+    case W = 'ᚹ';
+    case H = 'ᚻ';
+    case N = 'ᚾ';
+    case I = 'ᛁ';
+    case J = 'ᛄ';
+    case EO = 'ᛇ';
+    case P = 'ᛈ';
+    case X = 'ᛉ';
+    case S_OR_Z = 'ᛊ';
+    case T = 'ᛏ';
+    case B = 'ᛒ';
+    case E = 'ᛖ';
+    case M = 'ᛗ';
+    case L = 'ᛚ';
+    case NG_OR_ING = 'ᛝ';
+    case OE = 'ᛟ';
+    case D = 'ᛞ';
+    case A = 'ᚪ';
+    case AE = 'ᚫ';
+    case Y = 'ᚣ';
+    case IA_OR_IO = 'ᛡ';
+    case EA = 'ᛠ';
 
     public function toLetter(): string|array
     {
