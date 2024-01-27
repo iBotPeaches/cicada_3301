@@ -17,10 +17,13 @@ jobs:
           php-version: '8.2'
 
       - name: Install Composer Dependencies
+        working-directory: tool
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
       - name: Run Pint
+        working-directory: tool
         run: ./vendor/bin/pint --test
 
       - name: Run Pest
+        working-directory: tool
         run: ./vendor/bin/pest
