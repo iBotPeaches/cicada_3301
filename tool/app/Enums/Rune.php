@@ -14,10 +14,10 @@ enum Rune: string
     case C_OR_K = 'ᚳ'; // kaun - Code Point: U+16B3
     case G = 'ᚷ'; // gyfu - Code Point: U+16B7
     case W = 'ᚹ'; // wunjo - Code Point: U+16B9
-    case H = 'ᚺ'; // hagalaz - Code Point: U+16BA
+    case H = 'ᚻ'; // hagalaz - Code Point: U+16BA
     case N = 'ᚾ'; // naudiz - Code Point: U+16BE
     case I = 'ᛁ'; // isaz - Code Point: U+16C1
-    case J = 'ᛃ'; // jera - Code Point: U+16C3
+    case J = 'ᛄ'; // jera - Code Point: U+16C3
     case EO = 'ᛇ'; // eihwaz - Code Point: U+16C7
     case P = 'ᛈ'; // pertho - Code Point: U+16C8
     case X = 'ᛉ'; // algiz - Code Point: U+16C9
@@ -27,12 +27,12 @@ enum Rune: string
     case E = 'ᛖ'; // ehwaz - Code Point: U+16D6
     case M = 'ᛗ'; // mannaz - Code Point: U+16D7
     case L = 'ᛚ'; // laguz - Code Point: U+16DA
-    case NG_OR_ING = 'ᛜ'; // ingwaz - Code Point: U+16DC
+    case NG_OR_ING = 'ᛝ'; // ingwaz - Code Point: U+16DC
     case OE = 'ᛟ'; // othala - Code Point: U+16DF
     case D = 'ᛞ'; // dagaz - Code Point: U+16DE
     case A = 'ᚪ'; // ansuz - Code Point: U+16AA
     case AE = 'ᚫ'; // aesc - Code Point: U+16AB
-    case Y = 'ᛦ'; // yr - Code Point: U+16E6
+    case Y = 'ᚣ'; // yr - Code Point: U+16A3
     case IA_OR_IO = 'ᛡ'; // io - Code Point: U+16E1
     case EA = 'ᛠ'; // ear - Code Point: U+16E0
 

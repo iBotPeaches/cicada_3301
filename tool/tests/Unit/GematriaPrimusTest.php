@@ -80,7 +80,7 @@ class GematriaPrimusTest extends TestCase
             ],
             'h' => [
                 'rune' => Rune::H,
-                'raw' => "\u{16BA}",
+                'raw' => "\u{16BB}",
                 'letter' => 'H',
                 'singleLetter' => 'H',
                 'value' => 23,
@@ -101,7 +101,7 @@ class GematriaPrimusTest extends TestCase
             ],
             'j' => [
                 'rune' => Rune::J,
-                'raw' => "\u{16C3}",
+                'raw' => "\u{16C4}",
                 'letter' => 'J',
                 'singleLetter' => 'J',
                 'value' => 37,
@@ -171,7 +171,7 @@ class GematriaPrimusTest extends TestCase
             ],
             'ng_or_ing' => [
                 'rune' => Rune::NG_OR_ING,
-                'raw' => "\u{16DC}",
+                'raw' => "\u{16DD}",
                 'letter' => ['NG', 'ING'],
                 'singleLetter' => '[NG|ING]',
                 'value' => 79,
@@ -206,7 +206,7 @@ class GematriaPrimusTest extends TestCase
             ],
             'y' => [
                 'rune' => Rune::Y,
-                'raw' => "\u{16E6}",
+                'raw' => "\u{16A3}",
                 'letter' => 'Y',
                 'singleLetter' => 'Y',
                 'value' => 103,
