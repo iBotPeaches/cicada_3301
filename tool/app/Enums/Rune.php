@@ -47,6 +47,41 @@ enum Rune: string
         };
     }
 
+    public function toReversedLetter(): string
+    {
+        return match ($this) {
+            self::F => 'EA',
+            self::U => '[IA|IO]',
+            self::TH => 'Y',
+            self::O => 'AE',
+            self::R => 'A',
+            self::C_OR_K => 'D',
+            self::G => 'OE',
+            self::W => '[NG|ING]',
+            self::H => 'L',
+            self::N => 'M',
+            self::I => 'E',
+            self::J => 'B',
+            self::EO => 'T',
+            self::P => '[S|Z]',
+            self::X => 'X',
+            self::S_OR_Z => 'P',
+            self::T => 'EO',
+            self::B => 'J',
+            self::E => 'I',
+            self::M => 'N',
+            self::L => 'H',
+            self::NG_OR_ING => 'W',
+            self::OE => 'G',
+            self::D => '[C|K]',
+            self::A => 'R',
+            self::AE => 'O',
+            self::Y => 'TH',
+            self::IA_OR_IO => 'U',
+            self::EA => 'F',
+        };
+    }
+
     public function toSingleLetter(): string
     {
         return match ($this) {
@@ -114,7 +149,6 @@ enum Rune: string
             self::Y => 103,
             self::IA_OR_IO => 107,
             self::EA => 109,
-            default => \InvalidArgumentException::class
         };
     }
 }

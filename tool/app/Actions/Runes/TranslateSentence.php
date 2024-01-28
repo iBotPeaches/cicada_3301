@@ -8,9 +8,10 @@ use App\Enums\Rune;
 
 class TranslateSentence
 {
-    public static function translate(string $sentence): string
+    public static function translate(string $sentence, bool $reverse = false): string
     {
         $letters = '';
+        $method = $reverse ? 'toReversedLetter' : 'toSingleLetter';
 
         $runes = preg_split('//u', $sentence, -1, PREG_SPLIT_NO_EMPTY);
         foreach ($runes as $rune) {
@@ -22,7 +23,7 @@ class TranslateSentence
             }
 
             $enum = Rune::tryFrom($rune);
-            $letters .= $enum?->toSingleLetter() ?? '[?]';
+            $letters .= $enum?->$method() ?? '[?]';
         }
 
         return $letters;
