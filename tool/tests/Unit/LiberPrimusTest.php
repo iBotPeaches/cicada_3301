@@ -30,6 +30,14 @@ class LiberPrimusTest extends TestCase
             ],
             // endregion
 
+            // region 03.jpg
+            '03.jpg - line 1' => [
+                'runes' => 'ᚢᛠᛝᛋᛇᚠᚳ ᚱᛇᚢᚷᛈᛠᛠ ᚠᚹᛉ',
+                'sentence' => 'UEA[NG|ING][S|Z]EOF[C|K] REOUGPEAEA FWX',
+            ],
+
+            // endregion
+
             // region 05.jpg
             '05.jpg - line 1' => [
                 'runes' => 'ᛋᚩᛗᛖ ᚹᛁᛋᛞᚩᛗ ᚦᛖ ᛈᚱᛁᛗᛖᛋ ᚪᚱᛖ ᛋᚪᚳ',
