@@ -47,7 +47,18 @@ enum Rune: string
         };
     }
 
-    public function toReversedLetter(): string
+    public function toReversedLetter(): string|array
+    {
+        return match ($this) {
+            self::U => ['IA', 'IO'],
+            self::W => ['NG', 'ING'],
+            self::P => ['S', 'Z'],
+            self::D => ['C', 'K'],
+            default => $this->toReversedLetter()
+        };
+    }
+
+    public function toReversedSingleLetter(): string
     {
         return match ($this) {
             self::F => 'EA',

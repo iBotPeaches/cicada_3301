@@ -7,7 +7,7 @@ use LaravelZero\Framework\Commands\Command;
 
 class TranslateSentence extends Command
 {
-    protected $signature = 'app:translate-sentence';
+    protected $signature = 'app:translate';
 
     protected $description = 'Translate Sentence';
 
