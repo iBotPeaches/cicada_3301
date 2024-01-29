@@ -11,7 +11,7 @@ class TranslateSentence
     public static function translate(string $sentence, bool $reverse = false): string
     {
         $letters = '';
-        $method = $reverse ? 'toReversedLetter' : 'toSingleLetter';
+        $method = $reverse ? 'toReversedSingleLetter' : 'toSingleLetter';
 
         $runes = preg_split('//u', $sentence, -1, PREG_SPLIT_NO_EMPTY);
         foreach ($runes as $rune) {
