@@ -162,4 +162,110 @@ enum Rune: string
             self::EA => 109,
         };
     }
+
+    public static function tryFromEnglish(string $letters): ?Rune
+    {
+        return match ($letters) {
+            'F' => self::F,
+            'U' => self::U,
+            'TH' => self::TH,
+            'O' => self::O,
+            'R' => self::R,
+            'C', 'K' => self::C_OR_K,
+            'G' => self::G,
+            'W' => self::W,
+            'H' => self::H,
+            'N' => self::N,
+            'I' => self::I,
+            'J' => self::J,
+            'EO' => self::EO,
+            'P' => self::P,
+            'X' => self::X,
+            'S', 'Z' => self::S_OR_Z,
+            'T' => self::T,
+            'B' => self::B,
+            'E' => self::E,
+            'M' => self::M,
+            'L' => self::L,
+            'NG', 'ING' => self::NG_OR_ING,
+            'OE' => self::OE,
+            'D' => self::D,
+            'A' => self::A,
+            'AE' => self::AE,
+            'Y' => self::Y,
+            'IA', 'IO' => self::IA_OR_IO,
+            'EA' => self::EA,
+            default => null,
+        };
+    }
+
+    public function toNumericPosition(): int
+    {
+        return match ($this) {
+            self::F => 1,
+            self::U => 2,
+            self::TH => 3,
+            self::O => 4,
+            self::R => 5,
+            self::C_OR_K => 6,
+            self::G => 7,
+            self::W => 8,
+            self::H => 9,
+            self::N => 10,
+            self::I => 11,
+            self::J => 12,
+            self::EO => 13,
+            self::P => 14,
+            self::X => 15,
+            self::S_OR_Z => 16,
+            self::T => 17,
+            self::B => 18,
+            self::E => 19,
+            self::M => 20,
+            self::L => 21,
+            self::NG_OR_ING => 22,
+            self::OE => 23,
+            self::D => 24,
+            self::A => 25,
+            self::AE => 26,
+            self::Y => 27,
+            self::IA_OR_IO => 28,
+            self::EA => 29,
+        };
+    }
+
+    public function toReversedNumericPosition(): int
+    {
+        return match ($this) {
+            self::F => 29,
+            self::U => 28,
+            self::TH => 27,
+            self::O => 26,
+            self::R => 25,
+            self::C_OR_K => 24,
+            self::G => 23,
+            self::W => 22,
+            self::H => 21,
+            self::N => 20,
+            self::I => 19,
+            self::J => 18,
+            self::EO => 17,
+            self::P => 16,
+            self::X => 15,
+            self::S_OR_Z => 14,
+            self::T => 13,
+            self::B => 12,
+            self::E => 11,
+            self::M => 10,
+            self::L => 9,
+            self::NG_OR_ING => 8,
+            self::OE => 7,
+            self::D => 6,
+            self::A => 5,
+            self::AE => 4,
+            self::Y => 3,
+            self::IA_OR_IO => 2,
+            self::EA => 1,
+        };
+    }
 }
