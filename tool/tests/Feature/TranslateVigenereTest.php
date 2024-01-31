@@ -10,11 +10,12 @@ use Tests\TestCase;
 class TranslateVigenereTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testMidiSolve(string $ciphertext, string $key, string $expected): void
+    public function testVigenereTest(string $ciphertext, string $key, string $expected): void
     {
         $this->artisan('app:vigenere')
             ->expectsQuestion('Enter a sentence to translate', $ciphertext)
             ->expectsQuestion('Enter the key.', $key)
+            ->assertOk()
             ->expectsOutputToContain($expected);
     }
 
@@ -22,9 +23,9 @@ class TranslateVigenereTest extends TestCase
     {
         return [
             'welcome' => [
-                'ciphertext' => '',
-                'key' => '',
-                'expected' => '',
+                'ciphertext' => 'ᚢᛠᛝᛋᛇᚠᚳ ᚱᛇᚢᚷᛈᛠᛠ ᚠᚹᛉ',
+                'key' => 'divinity',
+                'expected' => 'WEL[C|K]OME',
             ],
         ];
     }

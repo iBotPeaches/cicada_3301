@@ -14,8 +14,8 @@ class TranslateVigenere extends Command
 
     public function handle(): int
     {
-        $sentence = $this->ask('Enter a sentence to translate', 'ᚢᛠᛝᛋᛇᚠᚳ ᚱᛇᚢᚷᛈᛠᛠ ᚠᚹᛉ');
-        $key = $this->ask('Enter the key.', 'divinity');
+        $sentence = $this->ask('Enter a sentence to translate');
+        $key = $this->ask('Enter the key.');
         $runicKey = GenerateRunesFromEnglish::handle($key);
 
         $translation = TranslateVigenereAction::translate($sentence, $runicKey);
