@@ -14,12 +14,12 @@ class TranslateVigenere extends Command
 
     public function handle(): int
     {
-        $sentence = $this->ask('Enter a sentence to translate');
-        $key = $this->ask('Enter the key.');
+        $sentence = $this->ask('Enter a sentence to translate', 'ᚢᛠᛝᛋᛇᚠᚳ ᚱᛇᚢᚷᛈᛠᛠ ᚠᚹᛉ');
+        $key = $this->ask('Enter the key.', 'divinity');
         $runicKey = GenerateRunesFromEnglish::handle($key);
 
-        $reversedTranslation = TranslateVigenereAction::translate($sentence, $runicKey, true);
         $translation = TranslateVigenereAction::translate($sentence, $runicKey);
+        $reversedTranslation = TranslateVigenereAction::translate($sentence, $runicKey, true);
 
         $this->output->write('Translation: '.$translation.PHP_EOL);
         $this->output->write('Reversed Translation: '.$reversedTranslation.PHP_EOL);

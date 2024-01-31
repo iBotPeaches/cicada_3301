@@ -18,8 +18,7 @@ class TranslateVigenere
         $runes = preg_split('//u', $sentence, -1, PREG_SPLIT_NO_EMPTY);
 
         // Our key is an array of each rune. We need to use index of each key to determine how to resolve the rune.
-        // For example - giving "D|d" we know that is 6 or 22 depending on which direction is being used.
-        // So as we iterate through the runes we match that index up to the key - wrapping when needed.
+        // For example - giving "d" we know that is 6
         foreach ($runes as $rune) {
             if ($rune === ' ') {
                 $letters .= ' ';
@@ -28,7 +27,15 @@ class TranslateVigenere
             }
 
             $cipherKey = $key[$runicIndex];
-            $enum = $staticRunes[$cipherKey->$method()];
+
+            // Now take the rune we are on and find its implicit index (0-n) in the Gematria.
+            // We can take the key and individual rune and add its implicit index to complete the cipher.
+            $runeEnum = Rune::tryFrom($rune);
+            $index = $runeEnum->$method() - $cipherKey->$method();
+
+            // If we bleed into negatives - lets bring us back.
+            $index = $index < 0 ? $index + 29 : $index;
+            $enum = $staticRunes[$index];
 
             // We don't need to reverse the letter, because we reversed (if needed) the rune.
             $letters .= $enum->toSingleLetter();
