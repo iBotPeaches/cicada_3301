@@ -6,6 +6,7 @@ namespace App\Actions\Runes;
 
 use App\Enums\Rune;
 use Illuminate\Support\Str;
+use UnexpectedValueException;
 
 class GenerateRunesFromEnglish
 {
@@ -19,7 +20,7 @@ class GenerateRunesFromEnglish
         foreach ($array as $letter) {
             $runicEnum = Rune::tryFromEnglish($letter);
             if (! $runicEnum) {
-                continue;
+                throw new UnexpectedValueException("Could not find a rune for the letter: $letter");
             }
             $runes[] = $runicEnum;
         }
