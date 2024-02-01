@@ -7,14 +7,13 @@ namespace Tests\Feature;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
-class TranslateVigenereTest extends TestCase
+class TranslateSentenceTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testVigenereDecoding(string $ciphertext, string $key, string $expected): void
+    public function testSentenceDecoding(string $ciphertext, string $expected): void
     {
-        $this->artisan('app:vigenere')
+        $this->artisan('app:translate')
             ->expectsQuestion('Enter a sentence to translate', $ciphertext)
-            ->expectsQuestion('Enter the key.', $key)
             ->assertOk()
             ->expectsOutputToContain($expected);
     }
@@ -23,9 +22,8 @@ class TranslateVigenereTest extends TestCase
     {
         return [
             'welcome' => [
-                'ciphertext' => 'ᚢᛠᛝᛋᛇᚠᚳ ᚱᛇᚢᚷᛈᛠᛠ ᚠᚹᛉ',
-                'key' => 'divinity',
-                'expected' => 'WEL[C|K]OME',
+                'ciphertext' => 'ᚱ ᛝᚱᚪᛗᚹ ᛄᛁᚻᛖᛁᛡᛁ ᛗᚫᚣᚹ ᛠᚪᚫᚾ',
+                'expected' => 'A WARN[NG|ING] BELIEUE NOTH[NG|ING] FROM',
             ],
         ];
     }
