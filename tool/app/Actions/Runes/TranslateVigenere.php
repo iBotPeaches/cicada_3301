@@ -27,11 +27,16 @@ class TranslateVigenere
                 continue;
             }
 
+            // If we don't recognize rune, just output (ie dots)
+            $runeEnum = Rune::tryFrom($rune);
+            if (! $runeEnum) {
+                continue;
+            }
+
             $cipherKey = $key[$runicIndex];
 
             // Now take the rune we are on and find its implicit index (0-n) in the Gematria.
             // We can take the key and individual rune and add its implicit index to complete the cipher.
-            $runeEnum = Rune::tryFrom($rune);
             $index = $runeEnum->$method() - $cipherKey->$method();
 
             // If we bleed into negatives - lets bring us back.
