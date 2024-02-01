@@ -7,16 +7,19 @@ use LaravelZero\Framework\Commands\Command;
 
 class TranslateSentence extends Command
 {
-    protected $signature = 'app:translate';
+    protected $signature = 'app:translate {sentence?}';
 
     protected $description = 'Translate Sentence';
 
     public function handle(): int
     {
-        $sentence = $this->ask('Enter a sentence to translate');
-        $reversed = $this->ask('Reverse the translation? (y/n)', 'n');
+        $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to translate');
 
-        $this->output->write(TranslateSentenceAction::translate($sentence, $reversed === 'y').PHP_EOL);
+        $translation = TranslateSentenceAction::translate($sentence);
+        $reversedTranslation = TranslateSentenceAction::translate($sentence, true);
+
+        $this->output->write('Translation: '.$translation.PHP_EOL);
+        $this->output->write('Reversed Translation: '.$reversedTranslation.PHP_EOL);
 
         return self::SUCCESS;
     }
