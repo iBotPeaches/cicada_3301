@@ -14,6 +14,7 @@ class TranslateVigenere
         $letters = '';
         $runicIndex = 0;
         $staticRunes = Rune::cases();
+        $countOfRunes = count($staticRunes);
         $method = $reversed ? 'toReversedNumericPosition' : 'toNumericPosition';
         $runes = preg_split('//u', $sentence, -1, PREG_SPLIT_NO_EMPTY);
 
@@ -34,7 +35,7 @@ class TranslateVigenere
             $index = $runeEnum->$method() - $cipherKey->$method();
 
             // If we bleed into negatives - lets bring us back.
-            $index = $index < 0 ? $index + 29 : $index;
+            $index = $index < 0 ? $index + $countOfRunes : $index;
             $enum = $staticRunes[$index];
 
             // We don't need to reverse the letter, because we reversed (if needed) the rune.

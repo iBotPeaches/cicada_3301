@@ -236,6 +236,6 @@ enum Rune: string
 
     public function toReversedNumericPosition(): int
     {
-        return 28 - $this->toNumericPosition();
+        return (count(self::cases()) - 1) - $this->toNumericPosition();
     }
 }
