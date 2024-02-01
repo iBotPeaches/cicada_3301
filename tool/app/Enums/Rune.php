@@ -162,4 +162,80 @@ enum Rune: string
             self::EA => 109,
         };
     }
+
+    public static function tryFromEnglish(string $letters): ?Rune
+    {
+        return match ($letters) {
+            'F' => self::F,
+            'U', 'V' => self::U,
+            'TH' => self::TH,
+            'O' => self::O,
+            'R' => self::R,
+            'C', 'K' => self::C_OR_K,
+            'G' => self::G,
+            'W' => self::W,
+            'H' => self::H,
+            'N' => self::N,
+            'I' => self::I,
+            'J' => self::J,
+            'EO' => self::EO,
+            'P' => self::P,
+            'X' => self::X,
+            'S', 'Z' => self::S_OR_Z,
+            'T' => self::T,
+            'B' => self::B,
+            'E' => self::E,
+            'M' => self::M,
+            'L' => self::L,
+            'NG', 'ING' => self::NG_OR_ING,
+            'OE' => self::OE,
+            'D' => self::D,
+            'A' => self::A,
+            'AE' => self::AE,
+            'Y' => self::Y,
+            'IA', 'IO' => self::IA_OR_IO,
+            'EA' => self::EA,
+            default => null,
+        };
+    }
+
+    public function toNumericPosition(): int
+    {
+        return match ($this) {
+            self::F => 0,
+            self::U => 1,
+            self::TH => 2,
+            self::O => 3,
+            self::R => 4,
+            self::C_OR_K => 5,
+            self::G => 6,
+            self::W => 7,
+            self::H => 8,
+            self::N => 9,
+            self::I => 10,
+            self::J => 11,
+            self::EO => 12,
+            self::P => 13,
+            self::X => 14,
+            self::S_OR_Z => 15,
+            self::T => 16,
+            self::B => 17,
+            self::E => 18,
+            self::M => 19,
+            self::L => 20,
+            self::NG_OR_ING => 21,
+            self::OE => 22,
+            self::D => 23,
+            self::A => 24,
+            self::AE => 25,
+            self::Y => 26,
+            self::IA_OR_IO => 27,
+            self::EA => 28,
+        };
+    }
+
+    public function toReversedNumericPosition(): int
+    {
+        return (count(self::cases()) - 1) - $this->toNumericPosition();
+    }
 }
