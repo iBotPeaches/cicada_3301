@@ -1,0 +1,14 @@
+name: Wordlist Verifier
+on:
+  push:
+    branches: [ master ]
+  pull_request_target:
+
+jobs:
+  verify:
+    name: Verify Wordlists
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify wordlists
+        run: ./scripts/verify_wordlists.sh
