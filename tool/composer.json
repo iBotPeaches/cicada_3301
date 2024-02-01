@@ -5,6 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "drupol/phpermutations": "^1.4",
         "laravel-zero/framework": "^10.2",
         "league/csv": "^9.0",
         "nunomaduro/termwind": "^1.15.1"
@@ -25,6 +26,12 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "./vendor/bin/pest --coverage"
+        ]
     },
     "config": {
         "preferred-install": "dist",

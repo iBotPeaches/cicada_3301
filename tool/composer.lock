@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46d8d26a98881b55a8f467e90acfbcd7",
+    "content-hash": "0c47dd4bf637960f065b878f43ab2ebe",
     "packages": [
         {
             "name": "brick/math",
@@ -281,6 +281,69 @@
                 }
             ],
             "time": "2023-08-10T19:36:49+00:00"
+        },
+        {
+            "name": "drupol/phpermutations",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupol/phpermutations.git",
+                "reference": "869912ebee25a761f09518299004eefd1c73f280"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupol/phpermutations/zipball/869912ebee25a761f09518299004eefd1c73f280",
+                "reference": "869912ebee25a761f09518299004eefd1c73f280",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 7.1.3"
+            },
+            "require-dev": {
+                "drupol/php-conventions": "^1.7.1",
+                "phpunit/php-code-coverage": "^4 || ^5",
+                "phpunit/phpunit": "^6 || ^7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "drupol\\phpermutations\\": "src/",
+                    "drupol\\phpermutations\\Tests\\": "tests/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pol Dellaiera",
+                    "email": "pol.dellaiera@protonmail.com"
+                }
+            ],
+            "description": "Generators and iterators, permutations and combinations.",
+            "homepage": "https://github.com/drupol/phpermutations",
+            "keywords": [
+                "combinations",
+                "fibonacci",
+                "iterators",
+                "math",
+                "numbers",
+                "permutations",
+                "prime numbers",
+                "product"
+            ],
+            "support": {
+                "issues": "https://github.com/drupol/phpermutations/issues",
+                "source": "https://github.com/drupol/phpermutations"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/drupol",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-05-11T07:42:22+00:00"
         },
         {
             "name": "filp/whoops",
