@@ -33,7 +33,10 @@ class TranslateVigenere
                 continue;
             }
 
-            $cipherKey = $key[$runicIndex];
+            $cipherKey = $key[$runicIndex] ?? null;
+            if (! $cipherKey) {
+                throw new \UnexpectedValueException('Runic key is not long enough to translate the sentence.');
+            }
 
             // Now take the rune we are on and find its implicit index (0-n) in the Gematria.
             // We can take the key and individual rune and add its implicit index to complete the cipher.
