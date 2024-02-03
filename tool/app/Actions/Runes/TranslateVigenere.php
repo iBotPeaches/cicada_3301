@@ -8,11 +8,12 @@ use App\Enums\Rune;
 
 class TranslateVigenere
 {
-    public static function translate(string $sentence, array $key, bool $reversed = false): string
+    public static function translate(string $sentence, array $key, array $indexesToSkip = [], bool $reversed = false): string
     {
         /* @var array[]|Rune[] $key */
         $letters = '';
         $runicIndex = 0;
+        $letterIndex = 0;
         $staticRunes = Rune::cases();
         $countOfRunes = count($staticRunes);
         $method = $reversed ? 'toReversedNumericPosition' : 'toNumericPosition';
@@ -21,6 +22,8 @@ class TranslateVigenere
         // Our key is an array of each rune. We need to use index of each key to determine how to resolve the rune.
         // For example - giving "d" we know that is 6
         foreach ($runes as $rune) {
+            $letterIndex++;
+
             if ($rune === ' ') {
                 $letters .= ' ';
 
@@ -30,6 +33,13 @@ class TranslateVigenere
             // If we don't recognize rune, just output (ie dots)
             $runeEnum = Rune::tryFrom($rune);
             if (! $runeEnum) {
+                continue;
+            }
+
+            // For some ciphers, we may want to skip shifting at random points.
+            if (in_array($letterIndex, $indexesToSkip)) {
+                $letters .= $runeEnum->toSingleLetter();
+
                 continue;
             }
 

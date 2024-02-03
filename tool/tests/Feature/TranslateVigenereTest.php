@@ -15,6 +15,7 @@ class TranslateVigenereTest extends TestCase
         $this->artisan('app:vigenere')
             ->expectsQuestion('Enter a sentence to translate', $ciphertext)
             ->expectsQuestion('Enter the key.', $key)
+            ->expectsQuestion('Enter the indexes to skip.', '')
             ->assertOk()
             ->expectsOutputToContain($expected);
     }
