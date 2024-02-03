@@ -13,7 +13,7 @@ class TranslateVigenere
         /* @var array[]|Rune[] $key */
         $letters = '';
         $runicIndex = 0;
-        $letterIndex = 0;
+        $runningRunicIndex = 0;
         $staticRunes = Rune::cases();
         $countOfRunes = count($staticRunes);
         $method = $reversed ? 'toReversedNumericPosition' : 'toNumericPosition';
@@ -22,7 +22,7 @@ class TranslateVigenere
         // Our key is an array of each rune. We need to use index of each key to determine how to resolve the rune.
         // For example - giving "d" we know that is 6
         foreach ($runes as $rune) {
-            $letterIndex++;
+            $runningRunicIndex++;
 
             if ($rune === ' ') {
                 $letters .= ' ';
@@ -37,7 +37,7 @@ class TranslateVigenere
             }
 
             // For some ciphers, we may want to skip shifting at random points.
-            if (in_array($letterIndex, $indexesToSkip)) {
+            if (in_array($runningRunicIndex, $indexesToSkip)) {
                 $letters .= $runeEnum->toSingleLetter();
 
                 continue;
