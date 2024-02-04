@@ -38,7 +38,7 @@ class BruteforceVigenereKey extends Command
             }
 
             $translation = TranslateVigenereAction::translate($sentence, $runicKey);
-            $reversedTranslation = TranslateVigenereAction::translate($sentence, $runicKey, true);
+            $reversedTranslation = TranslateVigenereAction::translate($sentence, $runicKey, [], true);
 
             $tableData[] = [
                 'word' => $word,
