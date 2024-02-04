@@ -30,6 +30,13 @@ class TranslateVigenere
                 continue;
             }
 
+            // Numbers have been proven to not be shift`ed.
+            if (is_numeric($rune)) {
+                $letters .= $rune;
+
+                continue;
+            }
+
             // If we don't recognize rune, just output (ie dots)
             $runeEnum = Rune::tryFrom($rune);
             if (! $runeEnum) {
