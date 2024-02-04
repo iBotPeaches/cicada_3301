@@ -24,6 +24,7 @@ class TranslateVigenere extends Command
         $reversedTranslation = TranslateVigenereAction::translate($sentence, $runicKey, $indexesToSkip, true);
 
         $this->output->write('Translation: '.$translation.PHP_EOL);
+        $this->output->write(PHP_EOL);
         $this->output->write('Reversed Translation: '.$reversedTranslation.PHP_EOL);
 
         return self::SUCCESS;
