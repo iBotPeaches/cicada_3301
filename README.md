@@ -1,9 +1,17 @@
 # Cicada 3301
 _Random collection of Cicada 3301 assets - not intending to compete with more complete alternatives._
 
-### Rules
+### Folders
 
- * Messages must verify to Cicada.
+ * `.github` - Workflows to enforce a variety of checks.
+ * `infotomb` - A collection of recovered InfoTomb snippets.
+ * `keys` - Collection of GPG key(s) used from Cicada 3301.
+ * `liber_primus` - Collection of Liber Primus pages.
+ * `messages` - Collection of messages from Cicada 3301 - must verify with GPG key.
+ * `onions` - Raw snippets from onions used in puzzles.
+ * `scripts` - Various bash scripts to aid in the organization of this repository.
+ * `tool` - A Laravel application full of Cicada themed tools.
+ * `wordlists` - Collected, sorted, de-duped word lists.
 
 ### Posts
 
