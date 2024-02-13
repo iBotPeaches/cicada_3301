@@ -25,6 +25,10 @@ class TranslateSentenceTest extends TestCase
                 'ciphertext' => 'ᚱ ᛝᚱᚪᛗᚹ ᛄᛁᚻᛖᛁᛡᛁ ᛗᚫᚣᚹ ᛠᚪᚫᚾ',
                 'expected' => 'A WARN[NG|ING] BELIEUE NOTH[NG|ING] FROM',
             ],
+            '05 - 272' => [
+                'ciphertext' => '272 138 ᛋᚻᚪᛞᚩᚹᛋ 131 151',
+                'expected' => '272 138 [S|Z]HADOW[S|Z] 131 151',
+            ],
         ];
     }
 }
