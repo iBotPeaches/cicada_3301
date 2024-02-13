@@ -23,6 +23,14 @@ class TranslateSentence
             }
 
             $enum = Rune::tryFrom($rune);
+
+            // Numbers have been proven to not be shift`ed.
+            if (is_numeric($rune)) {
+                $letters .= $rune;
+
+                continue;
+            }
+
             $letters .= $enum?->$method() ?? '[?]';
         }
 
