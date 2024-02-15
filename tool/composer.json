@@ -5,6 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "ext-gmp": "*",
         "drupol/phpermutations": "^1.4",
         "laravel-zero/framework": "^10.2",
         "league/csv": "^9.0",
@@ -17,9 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
