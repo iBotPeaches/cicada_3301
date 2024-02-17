@@ -2,8 +2,10 @@
 
 set -e
 
-key="$(pwd)/keys/67F363C61BA8FB6FDBA9C47D0670B0E57A35090F.asc.gpg"
-directory="$(pwd)/messages"
+script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+directory="$script_dir/../messages"
+key="$script_dir/../keys/67F363C61BA8FB6FDBA9C47D0670B0E57A35090F.asc.gpg"
+
 find "$directory" -type d -print0 | while IFS= read -r -d '' subfolder; do
     if [ -d "$subfolder" ]; then
         cd "$subfolder" || exit

@@ -2,7 +2,8 @@
 
 set -e
 
-directory="wordlists"
+script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+directory="$script_dir/../wordlists"
 
 if [ ! -d "$directory" ]; then
     echo "Directory $directory does not exist."
