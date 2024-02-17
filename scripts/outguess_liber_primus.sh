@@ -5,8 +5,9 @@ if ! command -v outguess &> /dev/null; then
     exit 1
 fi
 
-images=$(pwd)/liber_primus
-messages=$(pwd)/messages/2014/liber_primus
+script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+images="$script_dir/../liber_primus"
+messages="$script_dir/../messages/2014/liber_primus"
 
 for image in "$images"/*; do
     if [ -f "$image" ]; then
