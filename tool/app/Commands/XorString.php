@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use App\Actions\Strings\XorWords;
 use LaravelZero\Framework\Commands\Command;
 
 class XorString extends Command
@@ -15,11 +16,7 @@ class XorString extends Command
         $string = $this->ask('Enter a string to XOR');
         $key = $this->ask('Enter the key.');
 
-        $xor1 = gmp_init($string, 16);
-        $xor2 = gmp_init($key, 16);
-
-        $xor = gmp_xor($xor1, $xor2);
-        $output = pack('H*', gmp_strval($xor, 16));
+        $output = XorWords::handle($string, $key);
 
         $this->output->write('XOR: '.$output.PHP_EOL);
 
