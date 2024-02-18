@@ -2,6 +2,11 @@
 
 set -e
 
+if ! command -v 7z &> /dev/null; then
+    echo "7z could not be found"
+    exit 1
+fi
+
 script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 directory="$script_dir/../iso"
 decoded_directory="$directory/unpacked"
