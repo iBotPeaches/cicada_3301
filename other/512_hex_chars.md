@@ -1,4 +1,5 @@
 ## 512 Hex Chars
+_The known 512 string of hex characters from the start/pre of various onions._
 
 ### cu343l33nqaekrnw.onion (761)
 
