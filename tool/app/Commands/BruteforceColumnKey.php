@@ -29,6 +29,8 @@ class BruteforceColumnKey extends Command
             $transpositionMatrix = GenerateTranspositionCipherMatrix::handle($singleWord, $possibleKeyLength);
 
             // Iterate all possible key permutations of that length, looking for English wordlists.
+            $startingKey = range(0, $possibleKeyLength - 1);
+
             $this->output->write('Possible key length: '.$possibleKeyLength.PHP_EOL);
         }
 
