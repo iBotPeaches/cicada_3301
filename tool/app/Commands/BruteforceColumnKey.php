@@ -20,6 +20,11 @@ class BruteforceColumnKey extends Command
         $this->output->write('Sentence: '.$singleWord.PHP_EOL);
         $possibleKeyLengths = GeneratePossibleColumnKeyLengths::handle($singleWord);
         foreach ($possibleKeyLengths as $possibleKeyLength) {
+            // Skip 1 or 2 matrix sizes as those are too small to be useful.
+            if ($possibleKeyLength < 3) {
+                continue;
+            }
+
             // Break the sentence into a matrix of the possible key length.
             $transpositionMatrix = GenerateTranspositionCipherMatrix::handle($singleWord, $possibleKeyLength);
 
