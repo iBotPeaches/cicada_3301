@@ -12,17 +12,19 @@ use LaravelZero\Framework\Commands\Command;
 
 class BruteforceColumnKey extends Command
 {
-    protected $signature = 'app:bruteforce-column-key {sentence?}';
+    protected $signature = 'app:bruteforce-column-key {sentence?} {--max-results=2}';
 
     protected $description = 'Bruteforce a column key from a columnar transposition cipher.';
 
     public function handle(): int
     {
+        $maxResults = (int) $this->option('max-results');
         $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to bruteforce');
         $singleWord = str_replace(' ', '', $sentence);
 
         $folder = app_path('../../wordlists');
         $words = ParseWordlistsIntoArray::handle($folder);
+        $detectedPhrases = 0;
 
         // Strip words too small
         $dictionaryWords = array_filter($words, function ($word) {
@@ -60,10 +62,15 @@ class BruteforceColumnKey extends Command
                         'key' => $key,
                         'plaintext' => $plaintext,
                     ];
+                    $detectedPhrases++;
                 }
             }
 
             $this->table($tableHeader, $tableData);
+
+            if ($detectedPhrases >= $maxResults) {
+                break;
+            }
         }
 
         return self::SUCCESS;
