@@ -27,4 +27,9 @@ class GeneratePermutation
             }
         }
     }
+
+    public static function reset(): void
+    {
+        self::$permutations = [];
+    }
 }
