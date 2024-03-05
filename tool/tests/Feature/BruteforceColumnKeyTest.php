@@ -17,7 +17,7 @@ class BruteforceColumnKeyTest extends TestCase
             ->expectsTable(['Key (4)', 'Plaintext'], [])
             ->expectsTable(['Key (7)', 'Plaintext'], [
                 ['0623145', 'TOBELIEVETHUTRISTSDEOTROSPOYSIBTLIIYQ4DTGUI2NUM44IM53139'],
-                ['0625143', 'TOBELIEVETRUTHISTODESTROYPOSSIBILITYQ4UTGDI2N4M4UIM59133']
+                ['0625143', 'TOBELIEVETRUTHISTODESTROYPOSSIBILITYQ4UTGDI2N4M4UIM59133'],
             ])
             ->assertExitCode(0);
     }
