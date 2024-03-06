@@ -5,6 +5,7 @@ namespace App\Commands;
 use App\Actions\Arrays\GeneratePermutation;
 use App\Actions\Ciphers\GeneratePlaintextFromTranspositionCipher;
 use App\Actions\Ciphers\GenerateTranspositionCipherMatrix;
+use App\Actions\Files\FilterWordlists;
 use App\Actions\Files\ParseWordlistsIntoArray;
 use App\Actions\Strings\GeneratePossibleColumnKeyLengths;
 use Illuminate\Support\Str;
@@ -23,13 +24,8 @@ class BruteforceColumnKey extends Command
         $singleWord = str_replace(' ', '', $sentence);
 
         $folder = app_path('../../wordlists');
-        $words = ParseWordlistsIntoArray::handle($folder);
+        $dictionaryWords = FilterWordlists::handle($folder, 5);
         $detectedPhrases = 0;
-
-        // Strip words too small
-        $dictionaryWords = array_filter($words, function ($word) {
-            return strlen($word) > 5;
-        });
 
         $this->output->write('Sentence: '.$singleWord.PHP_EOL);
         $possibleKeyLengths = GeneratePossibleColumnKeyLengths::handle($singleWord);
