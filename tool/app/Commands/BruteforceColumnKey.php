@@ -6,7 +6,6 @@ use App\Actions\Arrays\GeneratePermutation;
 use App\Actions\Ciphers\GeneratePlaintextFromTranspositionCipher;
 use App\Actions\Ciphers\GenerateTranspositionCipherMatrix;
 use App\Actions\Files\FilterWordlists;
-use App\Actions\Files\ParseWordlistsIntoArray;
 use App\Actions\Strings\GeneratePossibleColumnKeyLengths;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
