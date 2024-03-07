@@ -2,8 +2,11 @@
 
 namespace App\Commands;
 
+use App\Actions\Files\FilterWordlists;
 use App\Actions\Runes\TranslateSentence as TranslateSentenceAction;
 use App\Actions\Strings\GeneratePermutation;
+use App\Actions\Strings\RotationCipher;
+use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 
 class BruteforceRotationCipher extends Command
@@ -16,7 +19,8 @@ class BruteforceRotationCipher extends Command
     {
         $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to translate');
 
-        // TODO Port the ColumnKey wordlist loading into action for re-use
+        $folder = app_path('../../wordlists');
+        $dictionaryWords = FilterWordlists::handle($folder, 3);
 
         $normalTranslation = TranslateSentenceAction::translate($sentence);
         $reversedTranslation = TranslateSentenceAction::translate($sentence, true);
@@ -29,11 +33,28 @@ class BruteforceRotationCipher extends Command
             GeneratePermutation::handle($translation);
             $permutations = GeneratePermutation::$permutations;
 
+            $tableHeader = [
+                $translation,
+                'Rotation',
+                'Plaintext',
+            ];
+            $tableData = [];
+
             foreach ($permutations as $permutation) {
                 foreach (range(1, 26) as $rotation) {
-                    // Iterate all 26 possible rotations for the permutation looking for English words.
+                    $plaintext = RotationCipher::handle($permutation, $rotation);
+
+                    if (Str::contains($plaintext, $dictionaryWords, ignoreCase: true)) {
+                        $tableData[] = [
+                            'permutation' => $permutation,
+                            'rotation' => $rotation,
+                            'plaintext' => $plaintext,
+                        ];
+                    }
                 }
             }
+
+            $this->table($tableHeader, $tableData);
         }
 
         return self::SUCCESS;
