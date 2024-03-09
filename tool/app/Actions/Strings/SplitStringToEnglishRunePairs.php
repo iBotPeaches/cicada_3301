@@ -11,7 +11,6 @@ class SplitStringToEnglishRunePairs
     public static function handle(string $sentence): array
     {
         // If the sentence contains a permutation, we generate the permutations and use the first one
-        // This is highly inefficient due to generating all permutations. We should use a generator instead.
         if (Str::contains($sentence, '[')) {
             $permutations = GeneratePermutation::handle($sentence);
             $sentence = $permutations->current();
