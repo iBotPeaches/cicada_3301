@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace App\Actions\Runes;
 
+use App\Actions\Strings\SplitStringToEnglishRunePairs;
 use App\Enums\Rune;
-use Illuminate\Support\Str;
 use UnexpectedValueException;
 
 class GenerateRunesFromEnglish
 {
     public static function handle(string $sentence): array
     {
-        $pattern = '/(TH|EO|AE|NG|ING|IA|IO|EA|.)/';
-
-        $array = preg_split($pattern, Str::upper($sentence), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+        $array = SplitStringToEnglishRunePairs::handle($sentence);
         $runes = [];
 
         foreach ($array as $letter) {

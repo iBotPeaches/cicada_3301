@@ -14,9 +14,9 @@ class ToPermutation extends Command
     public function handle(): int
     {
         $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to preform permutation on.');
-        GeneratePermutation::handle($sentence);
+        $permutations = GeneratePermutation::handle($sentence);
 
-        foreach (GeneratePermutation::$permutations as $keyPermutation) {
+        foreach ($permutations as $keyPermutation) {
             $this->output->write($keyPermutation.PHP_EOL);
         }
 

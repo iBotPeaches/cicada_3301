@@ -199,6 +199,42 @@ enum Rune: string
         };
     }
 
+    public static function tryFromIndex(int $index): ?Rune
+    {
+        return match ($index) {
+            0 => self::F,
+            1 => self::U,
+            2 => self::TH,
+            3 => self::O,
+            4 => self::R,
+            5 => self::C_OR_K,
+            6 => self::G,
+            7 => self::W,
+            8 => self::H,
+            9 => self::N,
+            10 => self::I,
+            11 => self::J,
+            12 => self::EO,
+            13 => self::P,
+            14 => self::X,
+            15 => self::S_OR_Z,
+            16 => self::T,
+            17 => self::B,
+            18 => self::E,
+            19 => self::M,
+            20 => self::L,
+            21 => self::NG_OR_ING,
+            22 => self::OE,
+            23 => self::D,
+            24 => self::A,
+            25 => self::AE,
+            26 => self::Y,
+            27 => self::IA_OR_IO,
+            28 => self::EA,
+            default => null,
+        };
+    }
+
     public function toNumericPosition(): int
     {
         return match ($this) {

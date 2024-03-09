@@ -18,6 +18,6 @@ class ParseWordlistsIntoArray
         }
         asort($words);
 
-        return array_unique($words);
+        return array_unique(array_filter($words));
     }
 }
