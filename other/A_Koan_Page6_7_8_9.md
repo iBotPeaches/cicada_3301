@@ -1,6 +1,11 @@
 ## A Koan (Page 6-9)
 _The full combined story from pages 6, 7, 8 and 9 of the Liber Primus._
 
+ * [Page 6](../liber_primus/markdown/06.md)
+ * [Page 7](../liber_primus/markdown/07.md)
+ * [Page 8](../liber_primus/markdown/08.md)
+ * [Page 9](../liber_primus/markdown/09.md)
+
 ```
 A Koan
 
