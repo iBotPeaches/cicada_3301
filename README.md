@@ -22,6 +22,7 @@ _Random collection of Cicada 3301 assets - not intending to compete with more co
  * [Puzzle 2](https://connortumbleson.com/2021/01/25/the-cicada-3301-mystery-puzzle-2/) (2013)
  * [Puzzle 3 - Part 1](https://connortumbleson.com/2021/02/15/the-cicada-3301-mystery-puzzle-3-part1/) (2014)
  * [Puzzle 3 - Part 2](https://connortumbleson.com/2024/02/05/the-cicada-3301-mystery-puzzle-3-solve-part-2/) (2014)
+ * [Puzzle 3 - Part 3](https://connortumbleson.com/2024/06/03/the-cicada-3301-mystery-puzzle-3-solve-part-3/) (2014)
 
 #### Others
 
