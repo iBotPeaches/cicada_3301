@@ -23,7 +23,7 @@ class XorStringTest extends TestCase
     {
         return [
             'welcome' => [
-                'ciphertext' => '5edb5e8029dd2182560da925ec6cd3e1257efc0b8328b4',
+                'data' => '5edb5e8029dd2182560da925ec6cd3e1257efc0b8328b4',
                 'key' => '6ab768f540ad4ff1226fce429b06aa970b119262ec46be',
                 'expected' => '4l6uipnstbggwjyv.onion',
             ],
