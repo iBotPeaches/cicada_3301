@@ -5801,16 +5801,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v3.5.0",
+            "version": "v3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "eaeb133c77f3f5382620f0307c3b45b34961bcfc"
+                "reference": "179d46ce97d52bcb3f791449ae94025c3f32e3e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/eaeb133c77f3f5382620f0307c3b45b34961bcfc",
-                "reference": "eaeb133c77f3f5382620f0307c3b45b34961bcfc",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/179d46ce97d52bcb3f791449ae94025c3f32e3e3",
+                "reference": "179d46ce97d52bcb3f791449ae94025c3f32e3e3",
                 "shasum": ""
             },
             "require": {
@@ -5821,18 +5821,18 @@
                 "pestphp/pest-plugin-arch": "^3.0.0",
                 "pestphp/pest-plugin-mutate": "^3.0.5",
                 "php": "^8.2.0",
-                "phpunit/phpunit": "^11.4.2"
+                "phpunit/phpunit": "^11.4.3"
             },
             "conflict": {
                 "filp/whoops": "<2.16.0",
-                "phpunit/phpunit": ">11.4.2",
+                "phpunit/phpunit": ">11.4.3",
                 "sebastian/exporter": "<6.0.0",
                 "webmozart/assert": "<1.11.0"
             },
             "require-dev": {
                 "pestphp/pest-dev-tools": "^3.3.0",
                 "pestphp/pest-plugin-type-coverage": "^3.1.0",
-                "symfony/process": "^7.1.5"
+                "symfony/process": "^7.1.6"
             },
             "bin": [
                 "bin/pest"
@@ -5897,7 +5897,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v3.5.0"
+                "source": "https://github.com/pestphp/pest/tree/v3.5.1"
             },
             "funding": [
                 {
@@ -5909,7 +5909,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-22T14:33:27+00:00"
+            "time": "2024-10-31T16:12:45+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -6360,23 +6360,23 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.8.2",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "153ae662783729388a584b4361f2545e4d841e3c"
+                "reference": "1fb5ba8d045f5dd984ebded5b1cc66f29459422d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/153ae662783729388a584b4361f2545e4d841e3c",
-                "reference": "153ae662783729388a584b4361f2545e4d841e3c",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/1fb5ba8d045f5dd984ebded5b1cc66f29459422d",
+                "reference": "1fb5ba8d045f5dd984ebded5b1cc66f29459422d",
                 "shasum": ""
             },
             "require": {
                 "doctrine/deprecations": "^1.0",
                 "php": "^7.3 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0",
-                "phpstan/phpdoc-parser": "^1.13"
+                "phpstan/phpdoc-parser": "^1.18"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
@@ -6412,9 +6412,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.8.2"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.9.0"
             },
-            "time": "2024-02-23T11:10:43+00:00"
+            "time": "2024-11-03T20:11:34+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -6788,16 +6788,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.4.2",
+            "version": "11.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1863643c3f04ad03dcb9c6996c294784cdda4805"
+                "reference": "e8e8ed1854de5d36c088ec1833beae40d2dedd76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1863643c3f04ad03dcb9c6996c294784cdda4805",
-                "reference": "1863643c3f04ad03dcb9c6996c294784cdda4805",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e8e8ed1854de5d36c088ec1833beae40d2dedd76",
+                "reference": "e8e8ed1854de5d36c088ec1833beae40d2dedd76",
                 "shasum": ""
             },
             "require": {
@@ -6868,7 +6868,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.4.2"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.4.3"
             },
             "funding": [
                 {
@@ -6884,7 +6884,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-19T13:05:19+00:00"
+            "time": "2024-10-28T13:07:50+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -7058,16 +7058,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "6.1.1",
+            "version": "6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "5ef523a49ae7a302b87b2102b72b1eda8918d686"
+                "reference": "43d129d6a0f81c78bee378b46688293eb7ea3739"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/5ef523a49ae7a302b87b2102b72b1eda8918d686",
-                "reference": "5ef523a49ae7a302b87b2102b72b1eda8918d686",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/43d129d6a0f81c78bee378b46688293eb7ea3739",
+                "reference": "43d129d6a0f81c78bee378b46688293eb7ea3739",
                 "shasum": ""
             },
             "require": {
@@ -7078,12 +7078,12 @@
                 "sebastian/exporter": "^6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^11.3"
+                "phpunit/phpunit": "^11.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "6.1-dev"
+                    "dev-main": "6.2-dev"
                 }
             },
             "autoload": {
@@ -7123,7 +7123,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
                 "security": "https://github.com/sebastianbergmann/comparator/security/policy",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/6.1.1"
+                "source": "https://github.com/sebastianbergmann/comparator/tree/6.2.1"
             },
             "funding": [
                 {
@@ -7131,7 +7131,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-18T15:00:48+00:00"
+            "time": "2024-10-31T05:30:08+00:00"
         },
         {
             "name": "sebastian/complexity",
