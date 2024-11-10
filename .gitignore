@@ -3,3 +3,7 @@
 
 # Cicada OS
 iso/*
+
+# Service
+other/service/files
+other/service/log.txt
