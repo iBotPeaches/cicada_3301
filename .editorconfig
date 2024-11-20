@@ -1,0 +1,4 @@
+root = true
+
+[onions/845145127.com/post2/index.html]
+trim_trailing_whitespace = false
