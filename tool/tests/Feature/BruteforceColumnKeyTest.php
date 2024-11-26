@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class BruteforceColumnKeyTest extends TestCase
 {
-    public function testBruteforceColumnKey(): void
+    public function test_bruteforce_column_key(): void
     {
         $sentence = 'TL BE IE OV UT HT RE ID TS EO ST PO SO YR SL BT II IY T4 DG UQ IM NU 44 2I 15 33 9M';
 

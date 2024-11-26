@@ -10,7 +10,7 @@ use Tests\TestCase;
 class XorStringTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testXorString(string $data, string $key, string $expected): void
+    public function test_xor_string(string $data, string $key, string $expected): void
     {
         $this->artisan('app:xor-string')
             ->expectsQuestion('Enter a string to XOR', $data)

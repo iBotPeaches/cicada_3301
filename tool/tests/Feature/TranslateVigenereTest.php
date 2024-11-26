@@ -10,7 +10,7 @@ use Tests\TestCase;
 class TranslateVigenereTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testVigenereDecoding(string $ciphertext, string $key, string $expected): void
+    public function test_vigenere_decoding(string $ciphertext, string $key, string $expected): void
     {
         $this->artisan('app:vigenere')
             ->expectsQuestion('Enter a sentence to translate', $ciphertext)

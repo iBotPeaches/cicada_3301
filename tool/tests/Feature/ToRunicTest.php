@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class ToRunicTest extends TestCase
 {
-    public function testStringToRunic(): void
+    public function test_string_to_runic(): void
     {
         $this->artisan('app:to-runic', ['sentence' => 'divinity'])
             ->expectsOutputToContain('ᛞ')
