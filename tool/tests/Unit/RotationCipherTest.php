@@ -11,7 +11,7 @@ use Tests\TestCase;
 class RotationCipherTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testSentenceDecoding(string $text, string $expected, int $rotation): void
+    public function test_sentence_decoding(string $text, string $expected, int $rotation): void
     {
         $this->assertSame($expected, RotationCipher::handle($text, $rotation));
     }

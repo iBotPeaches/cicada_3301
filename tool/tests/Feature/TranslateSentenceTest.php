@@ -10,7 +10,7 @@ use Tests\TestCase;
 class TranslateSentenceTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testSentenceDecoding(string $ciphertext, string $expected): void
+    public function test_sentence_decoding(string $ciphertext, string $expected): void
     {
         $this->artisan('app:translate')
             ->expectsQuestion('Enter a sentence to translate', $ciphertext)

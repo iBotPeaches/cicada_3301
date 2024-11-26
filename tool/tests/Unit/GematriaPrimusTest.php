@@ -11,7 +11,7 @@ use Tests\TestCase;
 class GematriaPrimusTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testProperCoalesceOfRunes(Rune $rune, string $raw, string|array $letter, string $singleLetter, int $value): void
+    public function test_proper_coalesce_of_runes(Rune $rune, string $raw, string|array $letter, string $singleLetter, int $value): void
     {
         $this->assertSame($raw, $rune->value);
         $this->assertSame($letter, $rune->toLetter());

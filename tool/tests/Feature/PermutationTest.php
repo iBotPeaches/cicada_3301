@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class PermutationTest extends TestCase
 {
-    public function testPermutationOnString(): void
+    public function test_permutation_on_string(): void
     {
         $this->artisan('app:permutation', ['sentence' => 'A WARN[NG|ING] BELIEUE NOTH[NG|ING] FROM'])
             ->expectsOutputToContain('A WARNNG BELIEUE NOTHNG FROM')

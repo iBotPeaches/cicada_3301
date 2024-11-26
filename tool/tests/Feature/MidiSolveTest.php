@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class MidiSolveTest extends TestCase
 {
-    public function testMidiSolve(): void
+    public function test_midi_solve(): void
     {
         $this->artisan('app:midi-solve')
             ->expectsOutputToContain('verygood')

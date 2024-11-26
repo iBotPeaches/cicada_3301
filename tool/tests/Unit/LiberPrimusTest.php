@@ -11,7 +11,7 @@ use Tests\TestCase;
 class LiberPrimusTest extends TestCase
 {
     #[DataProvider('dataProvider')]
-    public function testSentenceDecoding(string $runes, string $sentence): void
+    public function test_sentence_decoding(string $runes, string $sentence): void
     {
         $this->assertSame($sentence, TranslateSentence::translate($runes));
     }
