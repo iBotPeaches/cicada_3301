@@ -19,7 +19,7 @@ class BruteforceAudioSteganography extends Command
     {
         $dockerImage = 'dominicbreuker/stego-toolkit';
         $imageId = CheckForDockerImage::handle($dockerImage);
-        $audioFile = $this->argument('file') ?? storage_path('mp3stego.mp3');
+        $audioFile = $this->argument('file') ?? storage_path('interconnected.mp3');
 
         if (! $imageId) {
             $this->error('Docker image not found. Please run `docker pull dominicbreuker/stego-toolkit`.');
@@ -35,6 +35,7 @@ class BruteforceAudioSteganography extends Command
 
         $wordlistFolder = app_path('../../wordlists');
         $wordlists = FilterWordlists::handle($wordlistFolder, 1);
+
         $stegoToolkit = new StegoToolkit($imageId);
         $stegoToolkit->addFile($audioFile);
         $this->info('Attempting to bruteforce audio file using stego-toolkit...');
@@ -45,6 +46,19 @@ class BruteforceAudioSteganography extends Command
 
             if (is_string($secret)) {
                 $this->output->success('SECRET FOUND! on word: '.Str::wrap($word, '"', '"').' using tool: mp3stego.');
+                $this->info($secret);
+                break;
+            }
+        }
+
+        $this->info('Attempting to bruteforce audio file using steghide...');
+        $this->info($stegoToolkit->steghideVersion());
+
+        foreach ($wordlists as $word) {
+            $secret = $stegoToolkit->steghide($word);
+
+            if (is_string($secret)) {
+                $this->output->success('SECRET FOUND! on word: '.Str::wrap($word, '"', '"').' using tool: steghide.');
                 $this->info($secret);
                 break;
             }
