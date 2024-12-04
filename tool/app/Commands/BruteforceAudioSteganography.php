@@ -35,7 +35,6 @@ class BruteforceAudioSteganography extends Command
 
         $wordlistFolder = app_path('../../wordlists');
         $wordlists = FilterWordlists::handle($wordlistFolder, 1);
-        $wordlists[] = 'abcd';
 
         $stegoToolkit = new StegoToolkit($imageId);
         $stegoToolkit->addFile($audioFile);
