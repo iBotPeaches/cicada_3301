@@ -39,6 +39,21 @@ class StegoToolkit
         return $this->executeCommand(implode(' ', $commands));
     }
 
+    public function steghide(string $password = 'abcd'): ?string
+    {
+        $commands = [
+            'command' => 'steghide',
+            'extract' => 'extract',
+            'extract_options' => '-sf '.escapeshellarg('/tmp/'.basename($this->files[0])),
+            'password' => '-p '.escapeshellarg($password),
+            'extract_to' => '-xf /tmp/out.txt',
+            'suppression' => '> /dev/null 2>&1',
+            'cat' => '&& cat /tmp/out.txt',
+        ];
+
+        return $this->executeCommand(implode(' ', $commands));
+    }
+
     public function mp3stegoVersion(): ?string
     {
         $commands = [
@@ -46,6 +61,16 @@ class StegoToolkit
             'redirect' => '2>&1',
             'grep' => '| grep "MP3StegoEncoder"',
             'awk' => '| awk \'{print $2}\'',
+        ];
+
+        return $this->executeCommand(implode(' ', $commands));
+    }
+
+    public function steghideVersion(): ?string
+    {
+        $commands = [
+            'command' => 'steghide',
+            'version' => '--version',
         ];
 
         return $this->executeCommand(implode(' ', $commands));
