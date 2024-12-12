@@ -11,7 +11,7 @@ class FilterWordlists
         $words = ParseWordlistsIntoArray::handle($folder);
 
         return array_filter($words, function ($word) use ($letterLimit) {
-            return strlen($word) > $letterLimit;
+            return strlen($word) >= $letterLimit;
         });
     }
 }
