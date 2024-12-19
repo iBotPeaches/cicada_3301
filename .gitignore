@@ -5,5 +5,5 @@
 iso/*
 
 # Service
-other/service/files
-other/service/log.txt
+other/service/src/files
+other/service/src/log.txt
