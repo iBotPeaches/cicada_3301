@@ -28,6 +28,13 @@ class BruteforceVigenereKey extends Command
         $bar->start();
 
         foreach ($words as $word) {
+            // If word contains numbers - abandon as it's not a valid key.
+            if (preg_match('/\d/', $word)) {
+                $bar->advance();
+
+                continue;
+            }
+
             $runicKey = GenerateRunesFromEnglish::handle($word);
 
             // We may have a word that doesn't translate to runes.
