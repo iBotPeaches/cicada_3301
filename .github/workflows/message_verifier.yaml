@@ -2,7 +2,7 @@ name: Message Verifier
 on:
   push:
     branches: [ master ]
-  pull_request_target:
+  pull_request:
 
 jobs:
   verify:
