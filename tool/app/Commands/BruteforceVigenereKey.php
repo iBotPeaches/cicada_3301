@@ -24,16 +24,17 @@ class BruteforceVigenereKey extends Command
         $tableData = [];
 
         $this->output->write('Iterating through '.count($words).' wordlists...'.PHP_EOL);
-        $bar = $this->output->createProgressBar(count($words));
-        $bar->start();
 
         foreach ($words as $word) {
+            // If word contains numbers - abandon as it's not a valid key.
+            if (preg_match('/\d/', $word)) {
+                continue;
+            }
+
             $runicKey = GenerateRunesFromEnglish::handle($word);
 
             // We may have a word that doesn't translate to runes.
             if (count($runicKey) === 0) {
-                $bar->advance();
-
                 continue;
             }
 
@@ -45,11 +46,7 @@ class BruteforceVigenereKey extends Command
                 'translation' => $translation,
                 'reversedTranslation' => $reversedTranslation,
             ];
-
-            $bar->advance();
         }
-
-        $bar->finish();
 
         $this->output->write(PHP_EOL);
 
