@@ -25,14 +25,14 @@ class MidiSolve extends Command
 
         $midiFilePath = storage_path('song.csv');
         $csv = Reader::createFromPath($midiFilePath, 'r');
-        [$track1, $track2, $track3, $track4] = collect($csv->getRecords())->groupBy('0');
+        [, , $track3, $track4] = collect($csv->getRecords())->groupBy('0');
 
         $mapping = [];
         $index = 0;
         $onNoteCache = [];
         $usedLetters = [];
 
-        $track4 = $track4->filter(function (array $record): bool {
+        $track4->filter(function (array $record): bool {
             $key = trim(Arr::get($record, '2'));
 
             return $key === 'Note_off_c' || $key === 'Note_on_c';
@@ -61,7 +61,7 @@ class MidiSolve extends Command
         });
 
         $decodedMessage = '';
-        $track3 = $track3->filter(function (array $record): bool {
+        $track3->filter(function (array $record): bool {
             $key = trim(Arr::get($record, '2'));
 
             return $key === 'Note_off_c' || $key === 'Note_on_c';

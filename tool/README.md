@@ -1,6 +1,5 @@
 # PHP Application for Cicada 3301
-_Liber Primus decoding._
-
+_Liber Primus decoding and some helper scripts for Cicada 3301 puzzles._
 
 ### Commands
 

@@ -8,15 +8,15 @@ use LaravelZero\Framework\Commands\Command;
 
 class TranslateVigenere extends Command
 {
-    protected $signature = 'app:vigenere';
+    protected $signature = 'app:vigenere {sentence?} {key?} {indexesToSkip?}';
 
     protected $description = 'Translate Vigènere Sentence';
 
     public function handle(): int
     {
-        $sentence = $this->ask('Enter a sentence to translate');
-        $key = $this->ask('Enter the key.');
-        $indexesToSkip = $this->ask('Enter the indexes to skip.');
+        $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to translate');
+        $key = $this->argument('key') ?? $this->ask('Enter the key.');
+        $indexesToSkip = $this->argument('indexesToSkip') ?? $this->ask('Enter the indexes to skip.');
         $runicKey = GenerateRunesFromEnglish::handle($key);
         $indexesToSkip = explode(',', $indexesToSkip);
 
