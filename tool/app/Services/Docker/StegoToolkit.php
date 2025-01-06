@@ -84,7 +84,7 @@ class StegoToolkit
         $rawCommand = 'sh -c '.Str::wrap($command, '"', '"');
         $command = 'docker run '.$fileMounts.' '.$this->imageId.' '.$rawCommand;
 
-        //echo $command.PHP_EOL;
+        // echo $command.PHP_EOL;
 
         $result = Process::run($command);
         if ($result->exitCode() !== 0) {
