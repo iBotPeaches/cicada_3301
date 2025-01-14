@@ -13,14 +13,10 @@ class GenerateGematriaPrimusTable extends Command
 
     public function handle(): int
     {
-        // | Rune | Letter | Value | Index | Reversed Index | Unicode |
-        // |------|--------|-------|-------|----------------|---------|
-        // | ᚠ    | F      | 2     | 0     | 31             | U+16A0  |
-
         $tableHeader = ['Rune', 'Letter', 'Value', 'Index', 'Reversed Index', 'Unicode'];
         $tableData = [];
 
-        collect(Rune::cases())->each(function (Rune $rune, $index) use (&$tableData) {
+        collect(Rune::cases())->each(function (Rune $rune) use (&$tableData) {
             $tableData[] = [
                 $rune->toRune(),
                 $rune->toSingleLetter(),
