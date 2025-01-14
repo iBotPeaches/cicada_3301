@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use Illuminate\Support\Str;
+
 enum Rune: string
 {
     case F = 'ᚠ';
@@ -273,5 +275,15 @@ enum Rune: string
     public function toReversedNumericPosition(): int
     {
         return (count(self::cases()) - 1) - $this->toNumericPosition();
+    }
+
+    public function toUnicode(): string
+    {
+        return Str::upper(dechex(mb_ord($this->toRune())));
+    }
+
+    public function toRune(): string
+    {
+        return $this->value;
     }
 }

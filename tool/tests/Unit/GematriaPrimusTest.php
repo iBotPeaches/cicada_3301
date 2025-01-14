@@ -17,6 +17,7 @@ class GematriaPrimusTest extends TestCase
         $this->assertSame($letter, $rune->toLetter());
         $this->assertSame($singleLetter, $rune->toSingleLetter());
         $this->assertSame($value, $rune->toInt());
+        $this->assertSame($raw, $rune->toRune());
     }
 
     public static function dataProvider(): array
