@@ -6,7 +6,7 @@ namespace App\Actions\Number;
 
 class StreamPrimes
 {
-    public static function handle(?int $startingPrime): \Generator
+    public static function handle(?int $startingPrime = null): \Generator
     {
         if (! $startingPrime) {
             $startingPrime = 1;
@@ -15,7 +15,7 @@ class StreamPrimes
         $currentPrime = gmp_nextprime($startingPrime);
 
         while (true) {
-            yield $currentPrime;
+            yield gmp_intval($currentPrime);
             $currentPrime = gmp_nextprime($currentPrime);
         }
     }
