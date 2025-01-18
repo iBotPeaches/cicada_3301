@@ -4,28 +4,27 @@ declare(strict_types=1);
 
 namespace App\Actions\Ciphers;
 
-use App\Actions\Number\StreamPrimes;
+use App\Actions\Number\GetNextPrime;
 use App\Enums\Rune;
 use Illuminate\Support\Collection;
 
 class GeneratePlaintextFromPrimeShiftedCipher
 {
-    public static function handle(Collection $sentence, int $shift = 0): string
+    public static function handle(Collection $sentence, int $shift = 0, array $indexesToSkip = []): string
     {
         $countOfRunes = count(Rune::cases());
         $plainText = '';
+        $prime = 1;
 
-        // Start streaming primes until we explicitly break - as it's an infinite loop
-        foreach (StreamPrimes::handle() as $index => $prime) {
-            // We know the sentence is implicitly indexed (0,1,2...) so we can use the iterator index to loop
-            $character = $sentence->get($index);
-            if (is_null($character)) {
-                break;
-            }
-
-            // If we have a rune - we know we want to shift it by the prime + the shift
-            // Otherwise we just append the character as is
-            if (is_a($character, Rune::class)) {
+        // Loop through each character in the sentence and follow one of the following rules:
+        // 1 - The character should be skipped (recorded via indexes) and preserved as is
+        // 2 - The character is a rune and needs to be shifted by the prime number + an optional shift.
+        // 3 - The character is a regular character and should be preserved as is
+        foreach ($sentence as $index => $character) {
+            if (in_array($index, $indexesToSkip)) {
+                $plainText .= is_string($character) ? $character : $character->toSingleLetter();
+            } elseif (is_a($character, Rune::class)) {
+                $prime = GetNextPrime::handle($prime);
                 $runicIndex = $character->toNumericPosition();
 
                 // Take the index of the rune and shift it by (prime - shift) then mod it by the count of runes

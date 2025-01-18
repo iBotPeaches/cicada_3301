@@ -6,12 +6,13 @@ use App\Actions\Ciphers\GeneratePlaintextFromPrimeShiftedCipher;
 use App\Actions\Files\FilterWordlists;
 use App\Actions\Runes\SplitSentenceToRuneEnums;
 use App\Enums\Rune;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 
 class BruteforcePrimeCipher extends Command
 {
-    protected $signature = 'app:bruteforce-prime-cipher {sentence?} {--shift=}';
+    protected $signature = 'app:bruteforce-prime-cipher {sentence?} {--shift=} {indexesToSkip?}';
 
     protected $description = 'Takes runic sentence and performs a prime cipher bruteforce with an optional shift.';
 
@@ -19,6 +20,7 @@ class BruteforcePrimeCipher extends Command
     {
         $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to translate');
         $shift = $this->option('shift') ?? null;
+        $indexesToSkip = Arr::wrap($this->argument('indexesToSkip') ?? []);
 
         $folder = app_path('../../wordlists');
         $dictionaryWords = FilterWordlists::handle($folder, 2);
@@ -32,7 +34,7 @@ class BruteforcePrimeCipher extends Command
             $this->info('No shift provided. Attempting to bruteforce prime cipher with all shifts...');
 
             foreach (range(0, $countOfRunes) as $shift) {
-                $plaintext = GeneratePlaintextFromPrimeShiftedCipher::handle($runes, $shift);
+                $plaintext = GeneratePlaintextFromPrimeShiftedCipher::handle($runes, $shift, $indexesToSkip);
 
                 if (Str::contains($plaintext, $dictionaryWords, ignoreCase: true)) {
                     $tableData[] = [
@@ -47,13 +49,10 @@ class BruteforcePrimeCipher extends Command
             return self::SUCCESS;
         }
 
-        $plaintext = GeneratePlaintextFromPrimeShiftedCipher::handle($runes, $shift);
-        $this->table($tableHeader, [
-            [
-                'shift' => $shift,
-                'plaintext' => Str::limit($plaintext),
-            ],
-        ]);
+        $plaintext = GeneratePlaintextFromPrimeShiftedCipher::handle($runes, $shift, $indexesToSkip);
+        $this->info('Shift provided: '.$shift);
+        $this->newLine();
+        $this->info($plaintext);
 
         return self::SUCCESS;
     }
