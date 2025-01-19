@@ -51,6 +51,7 @@ class BruteforcePrimeCipher extends Command
 
         $plaintext = GeneratePlaintextFromPrimeShiftedCipher::handle($runes, $shift, $indexesToSkip);
         $this->info('Shift provided: '.$shift);
+        $this->info('Indexes to skip: '.implode(', ', $indexesToSkip));
         $this->newLine();
         $this->info($plaintext);
 
