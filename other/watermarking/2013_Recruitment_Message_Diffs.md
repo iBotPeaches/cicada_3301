@@ -3,9 +3,12 @@ _With 2 verifiable messages we can look how Cicada 3301 watermarks messages to d
 
 ### Differences
 
+* Period/Exclamation swaps.
+* Single/Double quotes.
+
 ```diff
---- do-not-share-this-information.asc	2024-01-21 07:28:29.891393093 -0500
-+++ do-not-share-this-information-2.asc	2024-09-24 07:14:55.709540242 -0400
+--- do-not-share-this-information.asc
++++ do-not-share-this-information-2.asc
 @@ -3,7 +3,7 @@
  
  DO NOT SHARE THIS INFORMATION!
