@@ -7,14 +7,15 @@ _Random collection of Cicada 3301 assets - not intending to compete with more co
  * `iso` - Extracted chunks of Cicada OS from Puzzle 2.
  * `keys` - Collection of GPG key(s) used from Cicada 3301.
  * `liber_primus` - Collection of Liber Primus pages.
- * `messages` - Collection of messages from Cicada 3301 - must verify with GPG key.
+   * `markdown` - My own written markdown versions of solved Liber Primus pages with reproducible solves.
+ * `messages` - Collection of messages from Cicada 3301 - must verify with GPG key, organized by year.
  * `onions` - Raw snippets from onions used in puzzles.
  * `other` - Collection of markdown files not fitting within Liber Primus.
    * `infotomb` - Backups of pastes from InfoTomb.
    * `service` - A web-server implementation for a simple upload.
  * `scripts` - Various bash scripts to aid in the organization of this repository.
- * `tool` - A Laravel application full of Cicada themed tools.
- * `wordlists` - Collected, sorted, de-duped word lists.
+ * `tool` - A Laravel application full of Cicada themed helper/solving tools.
+ * `wordlists` - Collected, sorted, de-duped word lists from Cicada materials.
 
 ### Posts
 
