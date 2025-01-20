@@ -13,6 +13,7 @@ _Random collection of Cicada 3301 assets - not intending to compete with more co
  * `other` - Collection of markdown files not fitting within Liber Primus.
    * `infotomb` - Backups of pastes from InfoTomb.
    * `service` - A web-server implementation for a simple upload.
+   * `watermarking` - Collection of watermarked messages from Cicada 3301.
  * `scripts` - Various bash scripts to aid in the organization of this repository.
  * `tool` - A Laravel application full of Cicada themed helper/solving tools.
  * `wordlists` - Collected, sorted, de-duped word lists from Cicada materials.
