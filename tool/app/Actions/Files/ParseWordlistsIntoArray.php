@@ -14,6 +14,9 @@ class ParseWordlistsIntoArray
         $files = File::allFiles($folder);
 
         foreach ($files as $file) {
+            if ($file->getExtension() !== 'txt') {
+                continue;
+            }
             $words = array_merge($words, explode("\n", File::get($file->getPathname())));
         }
         asort($words);
