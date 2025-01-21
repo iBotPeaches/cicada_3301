@@ -13,7 +13,7 @@ Those are under MIT.
 ```
 MIT License
 
-Copyright (c) 2024 Connor Tumbleson
+Copyright (c) 2025 Connor Tumbleson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
