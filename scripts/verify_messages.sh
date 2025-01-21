@@ -10,7 +10,7 @@ find "$directory" -type d -print0 | while IFS= read -r -d '' subfolder; do
     if [ -d "$subfolder" ]; then
         cd "$subfolder" || exit
 
-        for file in *; do
+        for file in *.asc; do
             if [ -f "$file" ] && [ -f "$key" ]; then
                 echo "Verifying GPG integrity of: $(basename "$subfolder"/"$file")"
 
