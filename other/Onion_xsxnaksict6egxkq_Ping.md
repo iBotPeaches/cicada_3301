@@ -1,5 +1,5 @@
 ## Onion (xsxnaksict6egxkq.onion) Ping
-_The combined output from the out-of-band data on the ping packet from the `xsxnaksict6egxkq.onion`._
+_The combined output from the out-of-band data on the ping packets from the `xsxnaksict6egxkq.onion`._
 
 ```text
 1f8b080843f5ee5000036d6573736167652e7478742e617363006d93
