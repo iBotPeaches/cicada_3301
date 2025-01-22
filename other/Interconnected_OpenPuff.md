@@ -1,8 +1,7 @@
 ## Interconnected (mp3) w/ OpenPuff
 _The extraction of magicsquares.txt with OpenPuff 4.0.0._
 
-
-## PreRequisites
+## Prerequisites
 - OpenPuff 4.0.0
 - interconnected.mp3 (`7638414d35f416084b7ddcc94aa53685`)
 - 50% MP3 bit selection
