@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Commands;
+
+use App\Actions\Runes\SplitSentenceToRuneEnums;
+use App\Enums\Rune;
+use LaravelZero\Framework\Commands\Command;
+
+use function Laravel\Prompts\table;
+
+class VisualizeRunes extends Command
+{
+    protected $signature = 'app:visualize-runes {sentence?}';
+
+    protected $description = 'Renders a visualization of a sentence with indexes and Gematria values.';
+
+    public function handle(): int
+    {
+        $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to translate');
+        $letters = SplitSentenceToRuneEnums::handle($sentence);
+
+        $header = $letters->map(fn (Rune|string $rune) => is_string($rune) ? $rune : $rune->toRune())->toArray();
+        $value = $letters->map(fn (Rune|string $rune) => is_string($rune) ? ' ' : $rune->toInt())->toArray();
+        $index = $letters->map(fn (Rune|string $rune) => is_string($rune) ? ' ' : $rune->toNumericPosition())->toArray();
+        $reversedIndex = $letters->map(fn (Rune|string $rune) => is_string($rune) ? ' ' : $rune->toReversedNumericPosition())->toArray();
+
+        // rows
+        $runicRow = array_merge(['Rune'], $header);
+        $valueRow = array_merge(['Index'], $value);
+        $indexRow = array_merge(['Value'], $index);
+        $reversedIndexRow = array_merge(['Reversed Index'], $reversedIndex);
+
+        table($runicRow, [
+            $valueRow,
+            $indexRow,
+            $reversedIndexRow,
+        ]);
+
+        return self::SUCCESS;
+    }
+}
