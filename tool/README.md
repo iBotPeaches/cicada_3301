@@ -17,5 +17,6 @@ _Liber Primus decoding and some helper scripts for Cicada 3301 puzzles._
 * `php cicada app:to-runic` - Converts a string to runic.
 * `php cicada app:translate` - Translation from runic to English using Gematria values.
 * `php cicada app:vigenere` - Decodes a Vigenere cipher using a key and skip indexes from Gematria values.
+* `php cicada app:visualize-runes` - Visualizes a runic sentence with letters, indexes and Gematria values.
 * `php cicada app:wordlists` - Dump word lists to stdout.
 * `php cicada app:xor-string` - XORs a string with a key.
