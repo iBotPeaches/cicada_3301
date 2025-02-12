@@ -9,15 +9,17 @@ use LaravelZero\Framework\Commands\Command;
 class ShamirSolve extends Command
 {
     protected $signature = 'app:shamir-solve';
+
     protected $description = 'Iterates the 2013 locations/data to extract secrets';
 
     public function handle(): int
     {
         // ISO Loading
         $iso = app_path('../../iso/unpacked/DATA');
-        $dataFile13 = $iso . '/560.13';
-        if (!file_exists($dataFile13)) {
+        $dataFile13 = $iso.'/560.13';
+        if (! file_exists($dataFile13)) {
             $this->error('Missing 2013 ISO file. Run `./scripts/download.iso.sh` in root of project.');
+
             return self::FAILURE;
         }
 
@@ -32,7 +34,7 @@ class ShamirSolve extends Command
             $extractedData = substr($data, $hexOffset, $hexLength);
 
             $tableData[] = [
-                'DataSet' => '560.' . $blob->dataSetNumber,
+                'DataSet' => '560.'.$blob->dataSetNumber,
                 'Offset' => $blob->offset,
                 'Data' => $blob->data,
                 'Extracted' => $extractedData,
