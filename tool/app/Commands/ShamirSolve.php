@@ -43,7 +43,7 @@ class ShamirSolve extends Command
 
             $tableData[] = [
                 'DataSet' => '560.'.$blob->dataSetNumber,
-                'Offset' => $blob->offset,
+                'Offset' => '0x'.dechex($blob->offset),
                 'Data' => $blob->data,
                 'Extracted' => $extractedData,
                 'XOR' => XorWords::handle($blob->data, $extractedData),
