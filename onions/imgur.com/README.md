@@ -11,3 +11,4 @@ _The home of any image from Cicada organized by filename_
 | `df991ade67ee90a3fabf445fa3530ae5` | `hkdgl.png`    | 2012 Round 2 Book Hint           |
 | `9cae1c1fc3427bee81da858814d7e4f6` | `m9sYK.jpeg`   | Decoy duck from 2012 Puzzle      |
 | `ea0cab3fa95d51ab6de798d61f1d5490` | `zN4h51m.jpeg` | January 6th, 2014 Tweet          |
+| `d0c92cc050b9e1ed649d965eb801234d` | `vjuNp.jpeg`   | February 6, 2012 Valēte! Ending  |
