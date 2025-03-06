@@ -6,6 +6,7 @@
     "require": {
         "php": "^8.2",
         "ext-gmp": "*",
+        "ext-openssl": "*",
         "drupol/phpermutations": "^1.4",
         "laravel-zero/framework": "^11.0",
         "league/csv": "^9.0",
