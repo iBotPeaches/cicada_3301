@@ -22,6 +22,9 @@ class GenerateKeyPair extends Command
         $n = gmp_mul($p, $q);
         $phi = gmp_mul(gmp_sub($p, 1), gmp_sub($q, 1));
         $d = gmp_invert($e, $phi);
+        $dmp1 = gmp_sub($p, 1);
+        $dmq1 = gmp_sub($q, 1);
+        $iqmp = gmp_invert($q, $p);
 
         $privateKey = openssl_pkey_new([
             'rsa' => [
@@ -30,6 +33,9 @@ class GenerateKeyPair extends Command
                 'd' => gmp_export($d),
                 'p' => gmp_export($p),
                 'q' => gmp_export($q),
+                'dmp1' => gmp_export($dmp1),
+                'dmq1' => gmp_export($dmq1),
+                'iqmp' => gmp_export($iqmp),
             ],
         ]);
 
