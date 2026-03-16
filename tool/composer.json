@@ -4,7 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.5",
         "ext-gmp": "*",
         "drupol/phpermutations": "^1.4",
         "laravel-zero/framework": "^12.0",
