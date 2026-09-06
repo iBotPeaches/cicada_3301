@@ -56,7 +56,7 @@ enum Rune: string
             self::W => ['NG', 'ING'],
             self::P => ['S', 'Z'],
             self::D => ['C', 'K'],
-            default => $this->toReversedLetter()
+            default => $this->toReversedSingleLetter()
         };
     }
 
