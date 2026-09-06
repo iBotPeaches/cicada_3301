@@ -20,6 +20,16 @@ class GematriaPrimusTest extends TestCase
         $this->assertSame($raw, $rune->toRune());
     }
 
+    public function test_reversed_letters_mirror_the_rune_table(): void
+    {
+        foreach (Rune::cases() as $rune) {
+            $mirrored = Rune::tryFromIndex($rune->toReversedNumericPosition());
+
+            $this->assertSame($mirrored->toLetter(), $rune->toReversedLetter());
+            $this->assertSame($mirrored->toSingleLetter(), $rune->toReversedSingleLetter());
+        }
+    }
+
     public static function dataProvider(): array
     {
         return [
