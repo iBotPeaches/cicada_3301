@@ -18,7 +18,7 @@ class TranslateVigenere extends Command
         $key = $this->argument('key') ?? $this->ask('Enter the key.');
         $indexesToSkip = $this->argument('indexesToSkip') ?? $this->ask('Enter the indexes to skip.');
         $runicKey = GenerateRunesFromEnglish::handle($key);
-        $indexesToSkip = explode(',', $indexesToSkip);
+        $indexesToSkip = array_values(array_map('intval', array_filter(array_map('trim', explode(',', (string) $indexesToSkip)), 'is_numeric')));
 
         $translation = TranslateVigenereAction::translate($sentence, $runicKey, $indexesToSkip);
         $reversedTranslation = TranslateVigenereAction::translate($sentence, $runicKey, $indexesToSkip, true);

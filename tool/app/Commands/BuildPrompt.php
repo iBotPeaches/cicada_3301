@@ -14,7 +14,7 @@ class BuildPrompt extends Command
     public function handle(): int
     {
         $prompt = <<<'PROMPT'
-        Gematria Primus is a cipher that encodes the Latin alphabet into 24 runic characters.
+        Gematria Primus is a cipher that encodes the Latin alphabet into 29 runic characters.
         The alphabet was built for the Cicada 3301 challenge and not directly related to a specific Runic alphabet.
         However, the runic characters are similar to the Elder Futhark and Anglo-Saxon alphabets.
         The runic characters are then used to encode a message.

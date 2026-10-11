@@ -22,7 +22,7 @@ class ShamirSolve extends Command
 
         foreach ([$dataFile13, $dataFile17] as $file) {
             if (! file_exists($file)) {
-                $this->error('Missing 2013 ISO file. Run `./scripts/download.iso.sh` in root of project.');
+                $this->error('Missing 2013 ISO file. Run `./scripts/download_iso.sh` in root of project.');
 
                 return self::FAILURE;
             }

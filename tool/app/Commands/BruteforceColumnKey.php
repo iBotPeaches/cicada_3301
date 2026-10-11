@@ -52,7 +52,8 @@ class BruteforceColumnKey extends Command
                 $plaintext = GeneratePlaintextFromTranspositionCipher::handle($transpositionMatrix, $permutation);
 
                 if (Str::contains($plaintext, $dictionaryWords, ignoreCase: true)) {
-                    $key = implode('', $permutation);
+                    // Separate digits once indices reach two digits, otherwise [1, 10] and [11, 0] look identical.
+                    $key = implode($possibleKeyLength > 10 ? ',' : '', $permutation);
                     $tableData[$key] = [
                         'key' => $key,
                         'plaintext' => $plaintext,

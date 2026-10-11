@@ -35,10 +35,10 @@ class BruteforceVigenereKey extends Command
                 continue;
             }
 
-            $runicKey = GenerateRunesFromEnglish::handle($word);
+            $runicKey = GenerateRunesFromEnglish::tryHandle($word);
 
-            // We may have a word that doesn't translate to runes.
-            if (count($runicKey) === 0) {
+            // We may have a word that doesn't translate to runes (ie contains Q or punctuation).
+            if (empty($runicKey)) {
                 $bar->advance();
 
                 continue;

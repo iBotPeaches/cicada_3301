@@ -40,6 +40,8 @@ class TranslateVigenere
             // If we don't recognize rune, just output (ie dots)
             $runeEnum = Rune::tryFrom($rune);
             if (! $runeEnum) {
+                $letters .= $rune;
+
                 continue;
             }
 

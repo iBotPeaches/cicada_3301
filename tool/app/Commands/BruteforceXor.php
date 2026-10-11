@@ -29,11 +29,19 @@ class BruteforceXor extends Command
         ];
 
         foreach ($files as $file) {
+            if (! file_exists($file)) {
+                $this->error('Missing 2013 ISO file. Run `./scripts/download_iso.sh` in root of project.');
+
+                return self::FAILURE;
+            }
+        }
+
+        foreach ($files as $file) {
             $fileContents = FileToHex::handle($file);
             $xored = XorWords::handle($text, $fileContents);
 
             $tableData[] = [
-                'word' => ctype_alnum($xored) ? Str::limit($xored, 128) : '<binary>',
+                'word' => ctype_print($xored) ? Str::limit($xored, 128) : '<binary>',
                 'file' => basename($file),
             ];
         }

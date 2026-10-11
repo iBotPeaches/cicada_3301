@@ -15,23 +15,17 @@ class RunicRotationCipher
         $plaintext = '';
         $pairs = SplitStringToEnglishRunePairs::handle($sentence);
         foreach ($pairs as $pair) {
-            // We skip spaces or numbers as those don't exist in Gematria Primus
-            if ($pair === ' ' || is_numeric($pair)) {
-                $plaintext .= ' ';
+            // Get the rune from the English letter. Anything without a rune (spaces, numbers, punctuation) is preserved.
+            $rune = Rune::tryFromEnglish($pair);
+            if (! $rune) {
+                $plaintext .= $pair;
 
                 continue;
             }
 
-            // Get the rune from the English letter
-            $rune = Rune::tryFromEnglish($pair);
-            $runicIndex = $rune->toNumericPosition();
-
-            $shiftedIndex = ($runicIndex + $rotation) % $runeCount;
-            $shiftedRune = Rune::tryFromIndex($shiftedIndex);
-
-            if ($shiftedRune) {
-                $plaintext .= $shiftedRune->toSingleLetter();
-            }
+            // Double modulo so negative rotations wrap around instead of going out of range.
+            $shiftedIndex = (($rune->toNumericPosition() + $rotation) % $runeCount + $runeCount) % $runeCount;
+            $plaintext .= Rune::tryFromIndex($shiftedIndex)->toSingleLetter();
         }
 
         return $plaintext;

@@ -25,4 +25,14 @@ class GenerateRunesFromEnglish
 
         return $runes;
     }
+
+    /** @return Rune[]|null */
+    public static function tryHandle(string $sentence): ?array
+    {
+        try {
+            return self::handle($sentence);
+        } catch (UnexpectedValueException) {
+            return null;
+        }
+    }
 }
