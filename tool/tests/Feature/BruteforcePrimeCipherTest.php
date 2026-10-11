@@ -26,4 +26,14 @@ class BruteforcePrimeCipherTest extends TestCase
             ->expectsOutputToContain('AEJ ')
             ->assertExitCode(0);
     }
+
+    public function test_bruteforce_all_shifts(): void
+    {
+        $sentence = 'ᚫᛄ ᛟᛋᚱ ᛗᚣᛚᚩᚻ ᚩᚫ ᚳᚦᚷᚹ ᚹᛚᚫ ᛉᚩᚪᛈ ᛗᛞᛞᚢᚷᚹ ᛚ ᛞᚾᚣᛄ ᚳᚠᛡ ᚫᛏᛈᛇᚪᚦ ᚳᚫ 3';
+
+        $this->artisan('app:bruteforce-prime-cipher', ['sentence' => $sentence])
+            ->expectsOutputToContain('No shift provided')
+            ->expectsOutputToContain('| 1     | AN END WITHIN THE DEEP WEB')
+            ->assertOk();
+    }
 }

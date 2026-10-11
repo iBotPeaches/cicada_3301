@@ -24,6 +24,7 @@ class RunicRotationCipherTest extends TestCase
             'negative rotation' => ['text' => 'FU', 'rotation' => -1, 'expected' => 'EAF'],
             'unknown characters preserved' => ['text' => 'FU[?]TH[?]', 'rotation' => 0, 'expected' => 'FU?TH?'],
             'letters without runes preserved' => ['text' => 'QF', 'rotation' => 1, 'expected' => 'QU'],
+            'oe digraph is one rune' => ['text' => 'OE', 'rotation' => 3, 'expected' => 'AE'],
             'numbers preserved' => ['text' => 'F 3', 'rotation' => 1, 'expected' => 'U 3'],
         ];
     }

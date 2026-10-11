@@ -238,4 +238,19 @@ class GematriaPrimusTest extends TestCase
             ],
         ];
     }
+
+    public function test_digraphs_resolve_from_english(): void
+    {
+        $this->assertSame(Rune::EO, Rune::tryFromEnglish('EO'));
+        $this->assertSame(Rune::OE, Rune::tryFromEnglish('OE'));
+        $this->assertSame(Rune::AE, Rune::tryFromEnglish('AE'));
+        $this->assertSame(Rune::U, Rune::tryFromEnglish('V'));
+        $this->assertNull(Rune::tryFromEnglish('Q'));
+    }
+
+    public function test_unicode_code_point(): void
+    {
+        $this->assertSame('16A0', Rune::F->toUnicode());
+        $this->assertSame('16E0', Rune::EA->toUnicode());
+    }
 }

@@ -24,6 +24,21 @@ class RotationCipherTest extends TestCase
                 'expected' => 'test',
                 'rotation' => 16,
             ],
+            'negative' => [
+                'text' => 'test',
+                'expected' => 'docd',
+                'rotation' => -16,
+            ],
+            'rot13' => [
+                'text' => 'Hello',
+                'expected' => 'Uryyb',
+                'rotation' => 13,
+            ],
+            'full rotation' => [
+                'text' => 'Hello',
+                'expected' => 'Hello',
+                'rotation' => 26,
+            ],
         ];
     }
 }
