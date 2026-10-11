@@ -6,7 +6,6 @@ namespace Tests\Feature;
 
 use App\Actions\Runes\GenerateRunesFromEnglish;
 use App\Enums\Rune;
-use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class BruteforceRotationCipherTest extends TestCase
@@ -15,11 +14,10 @@ class BruteforceRotationCipherTest extends TestCase
     {
         $sentence = implode('', array_map(fn (Rune $rune) => $rune->value, GenerateRunesFromEnglish::handle('welcome')));
 
-        Artisan::call('app:bruteforce-rotation-cipher', ['sentence' => $sentence]);
-        $output = Artisan::output();
-
-        $this->assertMatchesRegularExpression('/\|\s*WELCOME\s*\|\s*0\s*\|\s*WELCOME\s*\|/', $output);
-        $this->assertMatchesRegularExpression('/\|\s*WELKOME\s*\|\s*0\s*\|\s*WELKOME\s*\|/', $output);
+        $this->artisan('app:bruteforce-rotation-cipher', ['sentence' => $sentence])
+            ->expectsOutputToContain('| WELCOME     | 0        | WELCOME   |')
+            ->expectsOutputToContain('| WELKOME     | 0        | WELKOME   |')
+            ->assertOk();
     }
 
     public function test_runic_rotation_covers_all_runes(): void
@@ -28,8 +26,8 @@ class BruteforceRotationCipherTest extends TestCase
         $runes = GenerateRunesFromEnglish::handle('welcome');
         $sentence = implode('', array_map(fn (Rune $rune) => Rune::tryFromIndex(($rune->toNumericPosition() + 1) % 29)->value, $runes));
 
-        Artisan::call('app:bruteforce-rotation-cipher', ['sentence' => $sentence, '--runic-shift' => true]);
-
-        $this->assertMatchesRegularExpression('/\|\s*WELCOME\s*\|\s*28\s*\|/', Artisan::output());
+        $this->artisan('app:bruteforce-rotation-cipher', ['sentence' => $sentence, '--runic-shift' => true])
+            ->expectsOutputToContain('| WELCOME        | 28       | WEL[C|K]OME            |')
+            ->assertOk();
     }
 }
