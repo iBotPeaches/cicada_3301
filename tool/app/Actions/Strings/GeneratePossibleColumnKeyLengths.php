@@ -10,15 +10,14 @@ class GeneratePossibleColumnKeyLengths
     {
         $singleWord = str_replace(' ', '', $sentence);
         $wordLength = strlen($singleWord);
-        $possibleKeyLengths = range(1, ($wordLength / 2));
         $keyLengths = [];
 
-        foreach ($possibleKeyLengths as $possibleKeyLength) {
+        for ($possibleKeyLength = 1; $possibleKeyLength <= intdiv($wordLength, 2); $possibleKeyLength++) {
             if ($wordLength % $possibleKeyLength === 0) {
                 $keyLengths[] = $possibleKeyLength;
             }
         }
 
-        return array_unique($keyLengths);
+        return $keyLengths;
     }
 }

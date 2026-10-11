@@ -12,6 +12,8 @@ class GeneratePermutation
     {
         if (count($item) <= 1) {
             yield $item;
+
+            return;
         }
 
         foreach ($item as $key => $value) {

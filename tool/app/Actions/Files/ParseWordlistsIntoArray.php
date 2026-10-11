@@ -17,10 +17,10 @@ class ParseWordlistsIntoArray
             if ($file->getExtension() !== 'txt') {
                 continue;
             }
-            $words = array_merge($words, explode("\n", File::get($file->getPathname())));
+            $words = array_merge($words, preg_split('/\R/', File::get($file->getPathname())));
         }
         asort($words);
 
-        return array_unique(array_filter($words));
+        return array_values(array_unique(array_filter($words)));
     }
 }

@@ -25,9 +25,9 @@ class VisualizeRunes extends Command
 
         // rows
         $runicRow = array_merge(['Rune'], $header);
-        $valueRow = array_merge(['Index'], $value);
+        $valueRow = array_merge(['Value'], $value);
         $singleLetterRow = array_merge(['Letter'], $singleLetter);
-        $indexRow = array_merge(['Value'], $index);
+        $indexRow = array_merge(['Index'], $index);
         $reversedIndexRow = array_merge(['Reversed Index'], $reversedIndex);
 
         $this->table($runicRow, [

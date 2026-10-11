@@ -6,7 +6,6 @@ use App\Actions\Ciphers\GeneratePlaintextFromPrimeShiftedCipher;
 use App\Actions\Files\FilterWordlists;
 use App\Actions\Runes\SplitSentenceToRuneEnums;
 use App\Enums\Rune;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
 
@@ -20,7 +19,7 @@ class BruteforcePrimeCipher extends Command
     {
         $sentence = $this->argument('sentence') ?? $this->ask('Enter a sentence to translate');
         $shift = $this->option('shift') ?? null;
-        $indexesToSkip = Arr::wrap($this->argument('indexesToSkip') ?? []);
+        $indexesToSkip = $this->parseIndexes($this->argument('indexesToSkip') ?? '');
 
         $folder = app_path('../../wordlists');
         $dictionaryWords = FilterWordlists::handle($folder, 2);
@@ -33,7 +32,7 @@ class BruteforcePrimeCipher extends Command
         if (is_null($shift)) {
             $this->info('No shift provided. Attempting to bruteforce prime cipher with all shifts...');
 
-            foreach (range(0, $countOfRunes) as $shift) {
+            foreach (range(0, $countOfRunes - 1) as $shift) {
                 $plaintext = GeneratePlaintextFromPrimeShiftedCipher::handle($runes, $shift, $indexesToSkip);
 
                 if (Str::contains($plaintext, $dictionaryWords, ignoreCase: true)) {
@@ -56,5 +55,12 @@ class BruteforcePrimeCipher extends Command
         $this->info($plaintext);
 
         return self::SUCCESS;
+    }
+
+    private function parseIndexes(string $indexes): array
+    {
+        $indexes = array_filter(array_map('trim', explode(',', $indexes)), 'is_numeric');
+
+        return array_values(array_map('intval', $indexes));
     }
 }
