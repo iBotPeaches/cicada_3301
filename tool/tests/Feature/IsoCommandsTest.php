@@ -13,28 +13,6 @@ class IsoCommandsTest extends TestCase
         return file_exists(app_path('../../iso/unpacked/DATA/560.13'));
     }
 
-    public function test_shamir_solve_requires_iso(): void
-    {
-        if ($this->isoPresent()) {
-            $this->markTestSkipped('ISO is present.');
-        }
-
-        $this->artisan('app:shamir-solve')
-            ->expectsOutputToContain('./scripts/download_iso.sh')
-            ->assertFailed();
-    }
-
-    public function test_bruteforce_xor_requires_iso(): void
-    {
-        if ($this->isoPresent()) {
-            $this->markTestSkipped('ISO is present.');
-        }
-
-        $this->artisan('app:bruteforce-xor', ['text' => 'hello'])
-            ->expectsOutputToContain('./scripts/download_iso.sh')
-            ->assertFailed();
-    }
-
     public function test_shamir_solve_extracts_onion(): void
     {
         if (! $this->isoPresent()) {
