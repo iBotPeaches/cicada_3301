@@ -29,17 +29,15 @@ class ShamirSolve extends Command
         }
 
         $files = [
-            13 => FileToHex::handle($dataFile13),
-            17 => FileToHex::handle($dataFile17),
+            13 => $dataFile13,
+            17 => $dataFile17,
         ];
 
         $tableHeader = ['DataSet', 'Offset', 'Data', 'Extracted', 'XORed'];
         $tableData = [];
 
         foreach ($this->getDataBlobs() as $blob) {
-            $hexOffset = $blob->offset * 2;
-            $hexLength = strlen($blob->data);
-            $extractedData = substr($files[$blob->dataSetNumber], $hexOffset, $hexLength);
+            $extractedData = FileToHex::handle($files[$blob->dataSetNumber], $blob->offset, intdiv(strlen($blob->data), 2));
 
             $tableData[] = [
                 'DataSet' => '560.'.$blob->dataSetNumber,
