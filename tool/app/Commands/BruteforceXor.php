@@ -37,7 +37,8 @@ class BruteforceXor extends Command
         }
 
         foreach ($files as $file) {
-            $fileContents = FileToHex::handle($file);
+            // XOR stops at the shorter input, so we never need more file bytes than the text has characters.
+            $fileContents = FileToHex::handle($file, 0, strlen($text));
             $xored = XorWords::handle($text, $fileContents);
 
             $tableData[] = [

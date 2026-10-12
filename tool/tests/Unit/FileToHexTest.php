@@ -16,6 +16,8 @@ class FileToHexTest extends TestCase
 
         try {
             $this->assertSame('414200', FileToHex::handle($file));
+            $this->assertSame('4200', FileToHex::handle($file, 1));
+            $this->assertSame('42', FileToHex::handle($file, 1, 1));
         } finally {
             unlink($file);
         }
