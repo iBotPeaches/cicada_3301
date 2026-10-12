@@ -34,6 +34,7 @@ class BruteforceRotationCipher extends Command
         // Obtain our translated runic sentence both forwards and backwards.
         foreach (['No' => $normalTranslation, 'Yes' => $reversedTranslation] as $isReversed => $translation) {
             $this->info('Reversed?: '.$isReversed.PHP_EOL);
+            $reversed = $isReversed === 'Yes';
             $permutations = GeneratePermutation::handle($translation);
 
             $tableHeader = [
@@ -46,7 +47,7 @@ class BruteforceRotationCipher extends Command
             foreach ($permutations as $permutation) {
                 foreach ($rotations as $rotation) {
                     $plaintext = $isRunic
-                        ? RunicRotationCipher::handle($permutation, $rotation)
+                        ? RunicRotationCipher::handle($sentence, $rotation, $reversed)
                         : RotationCipher::handle($permutation, $rotation);
 
                     // Inefficient, but we need to re-permute the string if runic shift was used.
@@ -73,7 +74,7 @@ class BruteforceRotationCipher extends Command
                     }
                 }
 
-                // Since we shift the runic sentence, we only need to find one permutation that works.
+                // Since we shift the runes directly, the permutations of the translation don't matter.
                 if ($isRunic) {
                     break;
                 }

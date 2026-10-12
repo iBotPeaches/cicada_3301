@@ -4,27 +4,31 @@ declare(strict_types=1);
 
 namespace App\Actions\Runes;
 
-use App\Actions\Strings\SplitStringToEnglishRunePairs;
 use App\Enums\Rune;
 
 class RunicRotationCipher
 {
-    public static function handle(string $sentence, int $rotation): string
+    public static function handle(string $sentence, int $rotation, bool $reversed = false): string
     {
         $runeCount = count(Rune::cases());
         $plaintext = '';
-        $pairs = SplitStringToEnglishRunePairs::handle($sentence);
-        foreach ($pairs as $pair) {
-            // Get the rune from the English letter. Anything without a rune (spaces, numbers, punctuation) is preserved.
-            $rune = Rune::tryFromEnglish($pair);
+
+        // Shift the runes themselves. Round-tripping through English letters is lossy, as two adjacent
+        // runes (ie O + E) cannot be told apart from a single digraph rune (ie OE).
+        foreach (mb_str_split($sentence) as $character) {
+            $rune = Rune::tryFrom($character);
+
+            // Anything that isn't a rune (spaces, numbers, punctuation) is preserved.
             if (! $rune) {
-                $plaintext .= $pair;
+                $plaintext .= $character;
 
                 continue;
             }
 
+            $runicIndex = $reversed ? $rune->toReversedNumericPosition() : $rune->toNumericPosition();
+
             // Double modulo so negative rotations wrap around instead of going out of range.
-            $shiftedIndex = (($rune->toNumericPosition() + $rotation) % $runeCount + $runeCount) % $runeCount;
+            $shiftedIndex = (($runicIndex + $rotation) % $runeCount + $runeCount) % $runeCount;
             $plaintext .= Rune::tryFromIndex($shiftedIndex)->toSingleLetter();
         }
 

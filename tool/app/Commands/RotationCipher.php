@@ -22,9 +22,9 @@ class RotationCipher extends Command
         $reversedTranslation = TranslateSentenceAction::translate($sentence, true);
         $this->info('Dumping normal, then reversed translation.');
 
-        foreach ([$normalTranslation, $reversedTranslation] as $translation) {
+        foreach ([false => $normalTranslation, true => $reversedTranslation] as $isReversed => $translation) {
             $plaintext = $isRunic
-                ? RunicRotationCipher::handle($translation, $rotation)
+                ? RunicRotationCipher::handle($sentence, $rotation, (bool) $isReversed)
                 : \App\Actions\Strings\RotationCipher::handle($translation, $rotation);
 
             $this->info($plaintext);
